@@ -1,3 +1,5 @@
 # Table of contents
 
-* [Page](README.md)
+* [Introduction](README.md)
+* [Quickstart](quickstart.md)
+* [Metrics](metrics.md)
