@@ -1,6 +1,6 @@
 # Introduction
 
-Inspeqai is the software development platform to evaluate, optimize and monitor LLM apps like AI Conversational Bots and Content Generation Agents, ensuring data privacy and security.
+Inspeqai is the software development platform to evaluate, optimize and monitor LLM apps like AI Conversational Bots and Content Generation Agents , ensuring data privacy and security.
 
 Evaluate LLM outputs using 40+ proprietary metrics benchmarked against industry standards. Get upfront prompt recommendations and save time and money.
 
