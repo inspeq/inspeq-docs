@@ -4,7 +4,7 @@
 
 #### Factual Consistency:
 
-Check if the generated text is consistent with known facts.
+Factual Consistency checks if the generated text is consistent with known facts.
 
 #### Usage
 
