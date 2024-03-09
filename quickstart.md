@@ -13,25 +13,33 @@ Get started by simple example for evaluation of metrics.
 1. Open a terminal.
 2. Navigate to the directory where you want to create the virtual environment.
 3. Run the following command:
+
 ```bash
    python3 -m venv venv
 ```
-#### Activate it 
+
+#### Activate it
+
 ```bash
   source venv/bin/activate
 ```
+
 ### windows
 
 1. Open a terminal.
 2. Navigate to the directory where you want to create the virtual environment.
 3. Run the following command:
+
 ```bash
    python -m venv venv
 ```
-#### Activate it 
+
+#### Activate it
+
 ```bash
 venv\Scripts\activate
 ```
+
 #### Make sure your environment is activated everytime you use package
 
 ### SDK Installation
@@ -74,11 +82,12 @@ and your_llm_output .
 
 print("\n   grammatical_correctness is:")
 print(inspeq_instance.grammatical_correctness(input_data))
-#get all metrices in one function
+#get all metrics in one function
 
-print(inspeq_instance.get_all_metrices(input_data))
+print(inspeq_instance.get_all_metrics(input_data))
 
 ```
+
 ### All Metrics provided by Inspeq sdk
 
 ```py
@@ -96,6 +105,5 @@ print(inspeq_instance.get_all_metrices(input_data))
     print("Get all metrics:", inspeq_instance.get_all_metrics(input_data))
 
 ```
-
 
 Result will display in your terminal once you run your main.py file.
