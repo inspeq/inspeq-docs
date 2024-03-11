@@ -81,7 +81,7 @@ print("Coherence:", inspeq_instance.coherence(input_data))
 
 ```
 
-### Available Metrics and Functions
+### Available Metrics 
 
 You can use the following metrics evaluation functions provided by the Inspeq AI Python SDK:
 
