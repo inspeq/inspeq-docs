@@ -72,7 +72,6 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 input_data = {
             "context": "your_llm_context",
             "response": "your_llm_response"
-
         }
 
 

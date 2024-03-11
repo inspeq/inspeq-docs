@@ -12,7 +12,7 @@ Factual Consistency checks if the generated text is consistent with known facts.
 from inspeq.client import Evaluator
 
 
-API_KEY = "sdk_key"
+API_KEY = "your_api_key"
 inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 input_data={
@@ -181,7 +181,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 input_data = {
             "context": "your_llm_context",
-            "response": "your_llm_response",
+            "response": "your_llm_response"
         }
 
 print("Conceptual Similarity:", inspeq_instance.conceptual_similarity(input_data))
@@ -227,7 +227,6 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 input_data = {
             "context": "your_llm_context",
             "response": "your_llm_response"
-
         }
 
 
@@ -252,7 +251,6 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 input_data = {
             "response": "your_llm_response"
-
         }
 
 
