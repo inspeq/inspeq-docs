@@ -12,19 +12,20 @@ Factual Consistency checks if the generated text is consistent with known facts.
 from inspeq.client import Evaluator
 
 
-API_KEY="your_api_key"
+API_KEY = "sdk_key"
 inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
+input_data={
+    "context": "your_llm_context",
+    "response":"your_llm_response"
+  }
 
-input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
-        }
+'''Note : Do not change the structure of input data keep the structure as it
+is. Put your data at places of Your_llm_response'''
 
 
-print("\n  Factual Consistency   is:")
-print(inspeq_instance.factual_consistency(input_data))
+print("Factual Consistency:", inspeq_instance.factual_consistency(input_data))
+
 ```
 
 #### Grammatical Correctness:
@@ -42,14 +43,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "response": "your_llm_response"
         }
 
 
-print("\n  Grammatical correctness response  is:")
-print(inspeq_instance.grammatical_correctness(input_data))
+print("Grammatical Correctness: ", inspeq_instance.grammatical_correctness(input_data))
+
 ```
 
 #### Do Not Use Keywords:
@@ -67,14 +66,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "response": "your_llm_response"
         }
 
 
-print("\n  Do not use keywords response  is:")
-print(inspeq_instance.do_not_use_keywords(input_data))
+print("Do Not Use Keywords: ", inspeq_instance.do_not_use_keywords(input_data))
+
 ```
 
 #### Fluency:
@@ -92,14 +89,11 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "response": "your_llm_response"
         }
 
+print("Fluency:", inspeq_instance.fluency(input_data))
 
-print("\n  Fluency is:")
-print(inspeq_instance.fluency(input_data))
 ```
 
 #### Answer Relevance:
@@ -117,13 +111,13 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
-        }
+    "prompt": "your_llm_prompt",
+    "response": "your_llm_response"
+    }
 
-print("\n  Answer relevance is:")
-print(inspeq_instance.answer_relevance(input_data))
+
+print("Answer Relevance:", inspeq_instance.answer_relevance(input_data))
+
 ```
 
 #### Word Limit Test:
@@ -141,15 +135,14 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
-        }
+    "prompt": "your_llm_prompt",
+    "response": "your_llm_response"
+    }
 
 
 
-print("\n  word_limit_test is:")
-print(inspeq_instance.word_limit_test(input_data))
+print("Word Limit Test:", inspeq_instance.word_limit_test(input_data))
+
 ```
 
 #### Response Tone:
@@ -167,14 +160,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
-        }
+    "response": "your_llm_response"
+    }
 
 
-print("\n  response_tone is:")
-print(inspeq_instance.response_tone(input_data))
+print("Response Tone:", inspeq_instance.response_tone(input_data))
+
 ```
 
 #### Conceptual Similarity:
@@ -192,14 +183,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "context": "your_llm_context",
+            "response": "your_llm_response",
         }
 
+print("Conceptual Similarity:", inspeq_instance.conceptual_similarity(input_data))
 
-print("\n  conceptual_similarity is:")
-print(inspeq_instance.conceptual_similarity(input_data))
 ```
 #### Readability:
 
@@ -215,14 +204,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "response": "your_llm_response"
         }
 
 
-print("\n  Readability is:")
-print(inspeq_instance.readability(input_data))
+print("Readability:", inspeq_instance.readability(input_data))
+
 ```
 
 #### Coherence :
@@ -239,12 +226,12 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "llm_input_context": "your_llm_context",
-            "llm_input_query": "your_llm_query",
-            "llm_output": "your_llm_output",
+            "context": "your_llm_context",
+            "response": "your_llm_response"
+
         }
 
 
-print("\n  Coherence is:")
-print(inspeq_instance.coherence(input_data))
+print("Coherence:", inspeq_instance.coherence(input_data))
+
 ```
