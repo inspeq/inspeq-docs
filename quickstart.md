@@ -1,13 +1,10 @@
 # Quickstart
 
-### Inspeqai Python SDK
+## Installation
 
-Get started by simple example for evaluation of metrics.
-
-### Create a Virtual Environment in Linux or Windows
+### Create a virtual environment in Linux/Mac/Windows
 
 ### Linux OS / MAC OS
-
 ### Using venv (Python 3)
 
 1. Open a terminal.
@@ -24,7 +21,7 @@ Get started by simple example for evaluation of metrics.
   source venv/bin/activate
 ```
 
-### windows
+### Windows
 
 1. Open a terminal.
 2. Navigate to the directory where you want to create the virtual environment.
@@ -34,7 +31,7 @@ Get started by simple example for evaluation of metrics.
    python -m venv venv
 ```
 
-#### Activate it
+#### Activate the virtual environment
 
 ```bash
 venv\Scripts\activate
@@ -42,7 +39,7 @@ venv\Scripts\activate
 
 #### Make sure your environment is activated everytime you use package
 
-### SDK Installation
+### Python package installation
 
 To install inspeqai python sdk, you can follow these steps:
 
@@ -70,8 +67,8 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "context": "your_llm_context",
-            "response": "your_llm_response"
+            "context": "Paris is the capital of France and its largest city.",
+            "response": "Paris is the capital of France."
         }
 
 

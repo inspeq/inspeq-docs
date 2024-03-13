@@ -1,10 +1,6 @@
 # Introduction
 
-Inspeqai is the software development platform to evaluate, optimize and monitor LLM apps like AI Conversational Bots and Content Generation Agents , ensuring data privacy and security.
-
-Evaluate LLM outputs using 40+ proprietary metrics benchmarked against industry standards. Get upfront prompt recommendations and save time and money.
-
-Use it as a low-code desktop application or as a pro-code SDK on your familiar tool chains - VS Code, Jupyter, Azure AI or AWS Sagemaker.&#x20;
+Inspeq AI is enterprise-ready LLMs evaluation and optimisation platform. Our platform is the most comprehensive platform that allows organizations to evaluate, experiment and improve LLM applications. Our meticulously designed suite of metrics assess key aspects including Task Accuracy, Linguistic Excellence, Safety & Bias, Vulnerability testing to ensure their effectiveness, safety, and ethical compliance.
 
 ### Vision
 

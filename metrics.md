@@ -16,8 +16,8 @@ API_KEY = "your_api_key"
 inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 input_data={
-    "context": "your_llm_context",
-    "response":"your_llm_response"
+    "context": "Paris is the capital of France and its largest city.",
+    "response":"Paris is the capital of France."
   }
 
 
@@ -40,7 +40,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "response": "your_llm_response"
+            "response": "Paris is the capital of France."
         }
 
 
@@ -63,7 +63,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "response": "your_llm_response"
+            "response": "Paris is the capital of France."
         }
 
 
@@ -86,7 +86,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "response": "your_llm_response"
+            "response": "Paris is the capital of France."
         }
 
 print("Fluency:", inspeq_instance.fluency(input_data))
@@ -108,8 +108,8 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-    "prompt": "your_llm_prompt",
-    "response": "your_llm_response"
+    "prompt": "What is the capital of France?",
+    "response": "Paris is the capital of France."
     }
 
 
@@ -132,8 +132,8 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-    "prompt": "your_llm_prompt",
-    "response": "your_llm_response"
+    "prompt": "What is the capital of France?",
+    "response": "Paris is the capital of France."
     }
 
 
@@ -157,7 +157,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-    "response": "your_llm_response"
+    "response": "Paris is the capital of France."
     }
 
 
@@ -180,8 +180,8 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "context": "your_llm_context",
-            "response": "your_llm_response"
+            "context": "Paris is the capital of France and its largest city.",
+            "response": "Paris is the capital of France."
         }
 
 print("Conceptual Similarity:", inspeq_instance.conceptual_similarity(input_data))
@@ -202,7 +202,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "response": "your_llm_response"
+            "response": "Paris is the capital of France."
         }
 
 
@@ -225,8 +225,8 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "context": "your_llm_context",
-            "response": "your_llm_response"
+            "context": "Paris is the capital of France and its largest city.",
+            "response": "Paris is the capital of France."
         }
 
 
@@ -250,7 +250,7 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "response": "your_llm_response"
+            "response": "Paris is the capital of France."
         }
 
 
@@ -272,9 +272,9 @@ inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
 
 input_data = {
-            "prompt":"your_llm_prompt",
-            "context": "your_llm_context",
-            "response": "your_llm_response"
+            "prompt":"What is the capital of France?",
+            "context": "Paris is the capital of France and its largest city.",
+            "response": "Paris is the capital of France."
         }
 
 
