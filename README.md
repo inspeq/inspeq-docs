@@ -4,4 +4,4 @@ Inspeq AI is enterprise-ready LLMs evaluation and optimisation platform. Our pla
 
 ### Vision
 
-Empower every person and organisation to build reliable AI applications - faster and cheaper
+Empower every person and organisation to build reliable AI applications - faster and cheaper.
