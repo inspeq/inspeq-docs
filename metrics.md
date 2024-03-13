@@ -29,6 +29,7 @@ print("Factual Consistency:", inspeq_instance.factual_consistency(input_data))
 
 Assess the grammatical accuracy of the generated text.
 
+
 #### Usage
 
 ```python
