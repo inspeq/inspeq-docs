@@ -188,7 +188,6 @@ Answer Relevance assesses the alignment between the model's responses and the in
 ## Readability
 
 ### Definition
-
 Readability scores help assess whether the LLM’s generated text is appropriate for the target audience’s reading level.
 
 ### Response Structure
