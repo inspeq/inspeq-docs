@@ -69,7 +69,7 @@ Tonality refers to the type of tone of the response.
   - Neutral (0.5)
   - Positive (0.5-1)
 
-## Answer Fluency
+## Fluency
 
 ### Definition
 
