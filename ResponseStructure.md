@@ -73,7 +73,7 @@ Tonality refers to the type of tone of the response.
 
 ### Definition
 
-Tonality refers to the type of tone of the response.
+Fluency refers to the ability of the LLM to generate text that is grammatically correct, natural-sounding, and easy to read. 
 
 ### Response Structure
 
@@ -131,7 +131,7 @@ The ability of the LLM to generate text that is organized, well-structured, and 
 
 ### Definition
 
-This metric refers to how grammatically correct the response generated is.
+This metric refers to how grammatically correct the response generated.
 
 ### Response Structure
 
@@ -188,7 +188,6 @@ Answer Relevance assesses the alignment between the model's responses and the in
 ## Readability
 
 ### Definition
-
 Readability scores help assess whether the LLM’s generated text is appropriate for the target audience’s reading level.
 
 ### Response Structure
@@ -247,7 +246,8 @@ Clarity is a subjective metric and refers to the response’s clarity in terms o
 
 ### Definition
 
-This metric refers to how grammatically correct the response generated is.
+This refers to the semantic similarity or relatedness between response generated and provided context.
+
 
 ### Response Structure
 
