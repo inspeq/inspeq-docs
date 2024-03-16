@@ -261,8 +261,7 @@ print("Clarity:", inspeq_instance.clarity(input_data))
 
 #### Get All Metics :
 
-This is the super metric it will give you result in one go of all metrics but remember it is heavy metrics so it will take time .Right now it is giving all 11 metrics in response
-
+Provide  result of all metrics.
 
 ```python
 from inspeq.client import Evaluator
