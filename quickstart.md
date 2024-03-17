@@ -1,6 +1,8 @@
 # Quickstart
 
-## Installation
+## Inspeq Sdk
+
+### Installation
 
 ### Create a virtual environment in Linux/Mac/Windows
 
