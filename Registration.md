@@ -8,8 +8,6 @@ Please visit our [signup page](https://app.inspeq.ai/signup){:target="_blank"} a
 - Email: [ ]
 - Password: [ ]
 
-Sign up page :
-![Sign up page ](images/register.png)
 
 Upon submission, you will receive a verification email at the provided email address. Please click on the verification link within the email to confirm your email address.
 
@@ -17,8 +15,6 @@ Upon submission, you will receive a verification email at the provided email add
 
 Once you have verified your email address, our technical team will review your account for verification. During this time, you can proceed to the [login page](https://app.inspeq.ai/login){:target="_blank"} but will be unable to access our services until verification is complete.
 
-Login page:
-![Login page ](images/login.png) 
 
 ## Login
 
