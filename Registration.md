@@ -6,8 +6,8 @@ Welcome to our registration process! Please follow the steps below to create you
 
 Please visit our <a href="https://app.inspeq.ai/signup" target="_blank">signup page</a> and fill in the following information:
 
-- Email: [ ]
-- Password: [ ]
+- Email
+- Password
 
 Upon submission, you will receive a verification email at the provided email address. Please click on the verification link within the email to confirm your email address.
 
