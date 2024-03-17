@@ -2,4 +2,8 @@
 
 * [Introduction](README.md)
 * [Registration Process](Registration.md)
-* [SDK](sdk.md)
+
+## Inspeq SDk
+* [Quickstart](quickstart.md)
+* [Metrics](metrics.md)
+* [Response Structure Details](ResponseStructure.md)
