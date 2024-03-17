@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Registration Process](Registration.md)
 
-## Inspeq SDk
+# Inspeq SDk
 * [Quickstart](quickstart.md)
 * [Metrics](metrics.md)
 * [Response Structure Details](ResponseStructure.md)
