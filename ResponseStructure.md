@@ -1,4 +1,5 @@
 # Explaination of Response Structure
+
 ### Example Input data
 
 This is the example input data used to evaluate below metrics and get the respective response structure
@@ -73,7 +74,7 @@ Tonality refers to the type of tone of the response.
 
 ### Definition
 
-Fluency refers to the ability of the LLM to generate text that is grammatically correct, natural-sounding, and easy to read. 
+Fluency refers to the ability of the LLM to generate text that is grammatically correct, natural-sounding, and easy to read.
 
 ### Response Structure
 
@@ -188,6 +189,7 @@ Answer Relevance assesses the alignment between the model's responses and the in
 ## Readability
 
 ### Definition
+
 Readability scores help assess whether the LLM’s generated text is appropriate for the target audience’s reading level.
 
 ### Response Structure
@@ -248,7 +250,6 @@ Clarity is a subjective metric and refers to the response’s clarity in terms o
 
 This refers to the semantic similarity or relatedness between response generated and provided context.
 
-
 ### Response Structure
 
 ```json
@@ -271,3 +272,58 @@ This refers to the semantic similarity or relatedness between response generated
   - Dissimilar (0-0.5)
   - Somewhat similar (0.51–0.7)
   - Similar (0.71 - 1)
+
+## Do not used keywords
+
+### Definition
+
+This tests list of keywords that should not be present in the response.
+
+### Response Structure
+
+```json
+{
+  "metricName": "DO_NOT_USE_KEYWORDS_EVALUATION",
+  "actualValue": null,
+  "actualValueType": "NONETYPE",
+  "metricLabels": ["Failed"],
+  "others": {}
+}
+```
+
+- `metricName`: Tells metric name
+- `actualValue`: No actualValue in this case.
+- `actualValueType`: The datatype of actualValue is NONETYPE.
+- `others`: Additional metadata (currently not much relevant).
+- `metricLabels`:This field in this case specifies status of test.
+  Possible labels :
+  - Passed(when the keywords mentioned are not present in the response)
+  - Failed(when the keywords mentioned are present in the response) 
+
+## Word Limit Test
+
+### Definition
+
+This returns whether the word limit specified in the input is crossed or not.
+
+### Response Structure
+
+```json
+{
+  "metricName": "WORD_COUNT_LIMIT_EVALUATION",
+  "actualValue": null,
+  "actualValueType": "NONETYPE",
+  "metricLabels": ["NA-Not evaluated"],
+  "others": {}
+}
+```
+
+- `metricName`: Tells metric name
+- `actualValue`: No actualValue in this case.
+- `actualValueType`: The datatype of actualValue is NONETYPE.
+- `others`: Additional metadata (currently not much relevant).
+- `metricLabels`:This field in this case specifies status of test.
+  Possible labels :
+  - Passed (when word limit specified in the input is not crossed)
+  - Failed (when word limit specified in the input is crossed)
+  - NA-Not evaluated (when there’s an error evaluating the response or word limit is not specified)
