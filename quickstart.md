@@ -94,6 +94,10 @@ You can use the following metrics evaluation functions provided by the Inspeq AI
 - **Coherence**: `coherence(input_data)`
 - **Readability**: `readability(input_data)`
 - **Clarity**: `clarity(input_data)`
+- **Diversity**: `diversity(input_data)`
+- **Creativity**: `creativity(input_data)`
+- **Data Leakage**: `data_leakage(input_data)`
+- **Model Refusal**: `model_refusal(input_data)`
 - **Get all metrics**: `get_all_metrics(input_data)`
 
 To use these functions, simply call the respective function with your input data.

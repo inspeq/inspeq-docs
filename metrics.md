@@ -259,6 +259,110 @@ print("Clarity:", inspeq_instance.clarity(input_data))
 
 ```
 
+#### Data Leakage :
+
+Detecting whether the model response contains any personal information such as credit card numbers, phone numbers, emails, urls etc.
+
+
+
+#### Usage
+
+```python
+from inspeq.client import Evaluator
+
+
+API_KEY="your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "response": "Paris is the capital of France."
+        }
+
+
+print("Data Leakage:", inspeq_instance.data_leakage(input_data))
+
+```
+
+#### Model Refusal :
+
+Detecting whether the model responds with a refusal response or not
+
+
+
+#### Usage
+
+```python
+from inspeq.client import Evaluator
+
+
+API_KEY="your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "response": "Paris is the capital of France."
+        }
+
+
+print("Model Refusal:", inspeq_instance.model_refusal(input_data))
+
+```
+
+
+#### Creativity :
+
+Creativity is also a subjective concept, especially in AI-generated content. LLMs can be very creative but the results are mostly evaluated by humans. For our story generation and document summarization use cases, we define this metric as a combination of different metrics that could provide a more comprehensive evaluation. We use lexical diversity score, contextual similarity score and hallucination score to evaluate creativity.
+
+
+
+#### Usage
+
+```python
+from inspeq.client import Evaluator
+
+
+API_KEY="your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "response": "Paris is the capital of France.", 
+            "context": "Paris is the capital of France and its largest city.",
+        }
+
+
+print("Creativity:", inspeq_instance.creativity(input_data))
+
+```
+
+
+#### Diversity :
+
+Diversity metric assess the diversity of vocabulary used in a piece of text. Higher lexical diversity generally indicates a broader range of words and can contribute to more natural-sounding language.
+
+
+
+#### Usage
+
+```python
+from inspeq.client import Evaluator
+
+
+API_KEY="your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "response": "Paris is the capital of France."
+        }
+
+
+print("Diversity:", inspeq_instance.diversity(input_data))
+
+```
+
+
 #### Get All Metics :
 
 Provide  result of all metrics.
