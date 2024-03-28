@@ -45,7 +45,7 @@ Factual Consistency (FC) pertains to the precision and correctness of informatio
 
 ### Definition
 
-Tonality refers to the type of tone of the response.
+Tonality refers to the type of tone or overall sentiment highlighted in the response.
 
 ### Response Structure
 
@@ -70,7 +70,7 @@ Tonality refers to the type of tone of the response.
   - Neutral (0.5)
   - Positive (0.5-1)
 
-## Fluency
+<!-- ## Fluency
 
 ### Definition
 
@@ -97,7 +97,7 @@ Fluency refers to the ability of the LLM to generate text that is grammatically 
   Possible labels for different actualValue for "ANSWER_FLUENCY_EVALUATION" ranges:
   - Not Fluent ( 0-0.5)
   - Moderately Fluent (0.51–0.7)
-  - Fluent (0.71 - 1)
+  - Fluent (0.71 - 1) -->
 
 ## Coherence
 
@@ -128,7 +128,7 @@ The ability of the LLM to generate text that is organized, well-structured, and 
   - Slightly Coherent (0.51–0.7)
   - Coherent (0.71 - 1)
 
-## Grammatical Correctness
+<!-- ## Grammatical Correctness
 
 ### Definition
 
@@ -155,7 +155,7 @@ This metric refers to how grammatically correct the response generated.
   Possible labels for different actualValue for "GRAMMATICAL_CORRECTNESS_EVALUATION" ranges:
   - Incorrect (0-0.5)
   - Partially Correct (0.51–0.7)
-  - Correct (0.71 - 1)
+  - Correct (0.71 - 1) -->
 
 ## Answer Relevance
 
@@ -277,7 +277,7 @@ This refers to the semantic similarity or relatedness between response generated
 
 ### Definition
 
-This tests list of keywords that should not be present in the response.
+Test the List of keywords that should not be present in the response.
 
 ### Response Structure
 
@@ -298,13 +298,13 @@ This tests list of keywords that should not be present in the response.
 - `metricLabels`:This field in this case specifies status of test.
   Possible labels :
   - Passed(when the keywords mentioned are not present in the response)
-  - Failed(when the keywords mentioned are present in the response) 
+  - Failed(when the keywords mentioned are present in the response)
 
 ## Word Limit Test
 
 ### Definition
 
-This returns whether the word limit specified in the input is crossed or not.
+Check if the generated text adheres to specified word limits.
 
 ### Response Structure
 
