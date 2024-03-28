@@ -82,20 +82,22 @@ print("Coherence:", inspeq_instance.coherence(input_data))
 ### Available Metrics 
 
 You can use the following metrics evaluation functions provided by the Inspeq AI Python SDK:
-"RESPONSE_TONE",
-"DO_NOT_USE_KEYWORDS",
-"ANSWER_RELEVANCE",
-"WORD_LIMIT_TEST",
-"FACTUAL_CONSISTENCY",
-"CONCEPTUAL_SIMILARITY",
-"READABILITY",
-"COHERENCE",
-"CLARITY",
-"MODEL_REFUSAL",
-"DATA_LEAKAGE",
-"DIVERSITY",
-"CREATIVITY",
-"NARRATIVE_CONTINUITY"
+
+- **Factual Consistency**: `factual_consistency(input_data)`
+- **Answer Relevance**: `answer_relevance(input_data)`
+- **Response Tone**: `response_tone(input_data)`
+- **Do Not Use Keywords**: `do_not_use_keywords(input_data)`
+- **Word Limit Test**: `word_limit_test(input_data)`
+- **Conceptual Similarity**: `conceptual_similarity(input_data)`
+- **Coherence**: `coherence(input_data)`
+- **Readability**: `readability(input_data)`
+- **Clarity**: `clarity(input_data)`
+- **model_refusal**: `model_refusal(input_data)`
+- **data_leakage**: `data_leakage(input_data)`
+- **diversity**: `diversity(input_data)`
+- **creativity**: `creativity(input_data)`
+- **narrative_continuity**: `narrative_continuity(input_data)`
+
 
 To use these functions, simply call the respective function with your input data.
 
