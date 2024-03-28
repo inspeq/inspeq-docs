@@ -55,21 +55,6 @@ You can give number of metric names as provided below. metrics_list can take mul
 as metric names which needs to be evaluate if you did not provide the custom configurations for the metrcs defined in the list than
 we will evaluate them on our default cnofigurations.
 
-"RESPONSE_TONE",
-"DO_NOT_USE_KEYWORDS",
-"ANSWER_FLUENCY",
-"ANSWER_RELEVANCE",
-"WORD_LIMIT_TEST",
-"FACTUAL_CONSISTENCY",
-"CONCEPTUAL_SIMILARITY",
-"READABILITY",
-"COHERENCE",
-"CLARITY",
-"MODEL_REFUSAL",
-"DATA_LEAKAGE",
-"DIVERSITY",
-"CREATIVITY",
-"NARRATIVE_CONTINUITY"
 
 For each metric, metric_config can be given as under:
 
