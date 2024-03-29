@@ -453,6 +453,6 @@ config_input= {
 
 
 
-print("Get all metrics:", inspeq_instance.get_all_metrics(input_data = input_data,config_input=config_input, task_name="your_task_name"))
+print("Get all metrics:", inspeq_instance.get_all_metrics(input_data = input_data,config_input=config_input, task_name="your_task_name") )
 
 ```
