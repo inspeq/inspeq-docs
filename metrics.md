@@ -20,32 +20,14 @@ input_data={
     "response":"Paris is the capital of France."
   }
 
-
-print("Factual Consistency:", inspeq_instance.factual_consistency(input_data))
-
-```
-
-#### Grammatical Correctness:
-
-Assess the grammatical accuracy of the generated text.
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5, 0.8],
+    }
 
 
-#### Usage
-
-```python
-from inspeq.client import Evaluator
-
-
-API_KEY="your_api_key"
-inspeq_instance = Evaluator(sdk_api_key=API_KEY)
-
-
-input_data = {
-            "response": "Paris is the capital of France."
-        }
-
-
-print("Grammatical Correctness: ", inspeq_instance.grammatical_correctness(input_data))
+print("Factual Consistency:", inspeq_instance.factual_consistency(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -67,30 +49,13 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,1],
+    }
 
-print("Do Not Use Keywords: ", inspeq_instance.do_not_use_keywords(input_data))
-
-```
-
-#### Fluency:
-
-Assess the overall smoothness and fluency of the generated text
-
-#### Usage
-
-```python
-from inspeq.client import Evaluator
-
-
-API_KEY="your_api_key"
-inspeq_instance = Evaluator(sdk_api_key=API_KEY)
-
-
-input_data = {
-            "response": "Paris is the capital of France."
-        }
-
-print("Fluency:", inspeq_instance.fluency(input_data))
+print("Do Not Use Keywords: ", inspeq_instance.do_not_use_keywords(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -113,8 +78,14 @@ input_data = {
     "response": "Paris is the capital of France."
     }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Answer Relevance:", inspeq_instance.answer_relevance(input_data))
+
+print("Answer Relevance:", inspeq_instance.answer_relevance(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -137,9 +108,14 @@ input_data = {
     "response": "Paris is the capital of France."
     }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,1],
+    }
 
 
-print("Word Limit Test:", inspeq_instance.word_limit_test(input_data))
+print("Word Limit Test:", inspeq_instance.word_limit_test(input_data = input_data,config_input=config_input, task_name="your_task_name" ))
 
 ```
 
@@ -161,8 +137,14 @@ input_data = {
     "response": "Paris is the capital of France."
     }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Response Tone:", inspeq_instance.response_tone(input_data))
+
+print("Response Tone:", inspeq_instance.response_tone(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -185,7 +167,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
-print("Conceptual Similarity:", inspeq_instance.conceptual_similarity(input_data))
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
+
+
+print("Conceptual Similarity:", inspeq_instance.conceptual_similarity(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 #### Readability:
@@ -206,8 +195,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Readability:", inspeq_instance.readability(input_data))
+
+print("Readability:", inspeq_instance.readability(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -230,8 +225,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Coherence:", inspeq_instance.coherence(input_data))
+
+print("Coherence:", inspeq_instance.coherence(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 #### Clarity :
@@ -254,8 +255,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Clarity:", inspeq_instance.clarity(input_data))
+
+print("Clarity:", inspeq_instance.clarity(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -279,8 +286,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,1],
+    }
 
-print("Data Leakage:", inspeq_instance.data_leakage(input_data))
+
+print("Data Leakage:", inspeq_instance.data_leakage(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -304,8 +317,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,1],
+    }
 
-print("Model Refusal:", inspeq_instance.model_refusal(input_data))
+
+print("Model Refusal:", inspeq_instance.model_refusal(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -331,8 +350,14 @@ input_data = {
             "context": "Paris is the capital of France and its largest city.",
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Creativity:", inspeq_instance.creativity(input_data))
+
+print("Creativity:", inspeq_instance.creativity(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -357,8 +382,47 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2", "custom_label_3"],
+        "label_thresholds": [0,0.5,0.8],
+    }
 
-print("Diversity:", inspeq_instance.diversity(input_data))
+
+print("Diversity:", inspeq_instance.diversity(input_data = input_data,config_input=config_input, task_name="your_task_name"))
+
+```
+
+#### Narrative Continuity :
+
+Narrative continuity metric is a measure that evaluates whether a generated response maintains coherence and logical flow with the preceding narrative, without introducing abrupt or illogical shifts (ex.- story jumps). It analyzes factors like topic consistency, event/character continuity, and overall coherence to detect discontinuities in the narrative.
+
+Not Continuous and  Continuous 
+
+
+
+#### Usage
+
+```python
+from inspeq.client import Evaluator
+
+
+API_KEY="your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "response": "Paris is the capital of France."
+        }
+
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,1],
+    }
+
+
+print("Narrative Continuity:", inspeq_instance.narrative_continuity(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
 
@@ -381,7 +445,14 @@ input_data = {
             "response": "Paris is the capital of France."
         }
 
+config_input= {
+        "threshold": 0.5,
+        "custom_labels": ["custom_label_1","custom_label_2"],
+        "label_thresholds": [0,0.5],
+    }
 
-print("Get all metrics:", inspeq_instance.get_all_metrics(input_data))
+
+
+print("Get all metrics:", inspeq_instance.get_all_metrics(input_data = input_data,config_input=config_input, task_name="your_task_name"))
 
 ```
