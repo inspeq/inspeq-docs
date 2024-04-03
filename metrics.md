@@ -665,7 +665,7 @@ print(results)
 ### Using Custom Config File and Custom configs for individual Metric
 
 
-Define your own custom config fle in **JSON** . Custom config should have the same structure as the [Default config file ](config_file.md) has.
+Define your own custom config fle in **JSON** . Custom config should have the same structure as the [Default config file ](inspeq_config.md) has.
 
 
 Metrics that have Binary output have different configuration from others. Following are the Metrics having Binary Output:
