@@ -61,20 +61,26 @@ Create a python file like main.py where you could use the functions provided by 
 
 ```python
 
-from inspeq.client import Evaluator
+from inspeq.client import InspeqEval
 
 
-API_KEY="your_api_key"
-inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+API_KEY = "your_api_key"
 
 
-input_data = {
-            "context": "Paris is the capital of France and its largest city.",
-            "response": "Paris is the capital of France."
-        }
+inspeq_eval = InspeqEval(inspeq_api_key= API_KEY)
 
 
-print("Coherence:", inspeq_instance.coherence(input_data))
+input_data={
+   "context": "Paris is the capital of France and its largest city.",
+   "response":"Paris is the capital of France."
+ }
+
+
+
+results = inspeq_eval.factual_consistency(input_data= input_data, task_name="your_task_name")
+
+
+print(results)
 
 
 ```
