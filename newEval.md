@@ -1,45 +1,76 @@
-## Example
+## Example using custom configs
+
+```python 
+from inspeq.client import InspeqEval
+
+input_data = [
+   {
+       "prompt":"What is the capital of France?",
+       "response": "Paris is the capital of France",
+       "context" : "Paris is the capital of France and its largest city"
+   },
+   {
+       "prompt":"What is the capital of France?",
+       "response": "Paris is the capital of France",
+       "context" : "Paris is the capital of France and its largest city"
+   }
+]
+
+metrics_list = [ "RESPONSE_TONE"]
+
+inspeq_api_key= "your_inspeq_api_key"
+
+inspeq_eval = InspeqEval(inspeq_api_key= inspeq_api_key)
+
+results = inspeq_eval.evaluate_llm_task(data= input_data , metrics_list= metrics_list, task_name = "your_task_name")
+
+
+print(results)
+
+```
+## Example using custom config file
+
 
 ```python
+from inspeq.client import InspeqEval
 
-
-from inspeq.client import Eval
-
-
-prompt = "query_text" # these are required fields depending on metrics
-context = "context_text"  # these are required fields depending on metrics
-response = "output_text"  # these are required fields depending on metrics
-secret_key = "sdk_api_key" # it is required field
-task_name = "abc" #it is compulsory to provide whatever you want to give the task name.
-
-metrics_list = [
-    "DIVERSITY"
+input_data = [
+   {
+       "prompt":"What is the capital of France?",
+       "response": "Paris is the capital of France",
+       "context" : "Paris is the capital of France and its largest city"
+   },
+   {
+       "prompt":"What is the capital of France?",
+       "response": "Paris is the capital of France",
+       "context" : "Paris is the capital of France and its largest city"
+   }
 ]
+
+metrics_list = [ "RESPONSE_TONE", "CLARITY"]
+
+inspeq_api_key= "your_inspeq_api_key"
+
+inspeq_eval = InspeqEval(inspeq_api_key= inspeq_api_key, config_file= '/path/to/your/config')
+
 metrics_config = {
-    "diversity_config": {
-        "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0],
-    }
+   "response_tone_config": {
+       "threshold": 0.5,
+       "custom_labels": ["custom_label_1", "custom_label_2"],
+       "label_thresholds": [0,0.5,1]
+   },
+   "clarity_config": {
+       "threshold": 0.5,
+       "custom_labels": ["custom_label_1", "custom_label_2"],
+       "label_thresholds": [0,0.5,1]
+   },
+
 }
-inspeq_instance = Eval("secret_key")
-result = inspeq_instance.evaluate_task(prompt, context, response, task_name, metrics_list, metrics_config)
-print(result)
-```
 
-Ouptut:
+results = inspeq_eval.evaluate_llm_task(data= input_data , metrics_list= metrics_list, metrics_config = metrics_config, task_name = "your_task_name")
 
-```json
-[
-  {
-    "metric_name": "DIVERSITY_EVALUATION",
-    "actual_value": 1.0,
-    "actual_value_type": "FLOAT",
-    "metric_labels": ["string"],
-    "others": {},
-    "threshold": ["Pass"]
-  }
-]
+print(results)
+
 ```
 
 When configuring metrics, it's important to note that each metric can be customized individually. If specific configurations are not provided, the system will default to predetermined values.
@@ -69,14 +100,14 @@ metrics_config = {
     }}
 ```
 
-- "DO_NOT_USE_KEYWORDS"
+- DO_NOT_USE_KEYWORDS: This metric that has binary output.
 
 ```python
 metrics_config = {
     "do_not_use_keywords_config": {
         "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0]
+        "custom_labels": ["bad", "good"],
+        "label_thresholds": [0,1]
     }}
 ```
 
@@ -91,14 +122,14 @@ metrics_config = {
     }}
 ```
 
-- "WORD_LIMIT_TEST"
+- WORD_LIMIT_TEST: This metric that has binary output.
 
 ```python
 metrics_config = {
     "word_limit_test_config": {
         "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0]
+        "custom_labels": ["bad", "good"],
+        "label_thresholds": [0,1]
     }}
 ```
 
@@ -157,25 +188,25 @@ metrics_config = {
     }}
 ```
 
-- "MODEL_REFUSAL"
+- MODEL_REFUSAL: This metric that has binary output.
 
 ```python
 metrics_config = {
     "model_refusal_config": {
         "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0]
+        "custom_labels": ["bad", "good"],
+        "label_thresholds": [0,1]
     }}
 ```
 
-- "DATA_LEAKAGE"
+- DATA_LEAKAGE: This metric that has binary output.
 
 ```python
 metrics_config = {
     "leakage_config": {
         "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0]
+        "custom_labels": ["bad", "good"],
+        "label_thresholds": [0,1]
     }}
 ```
 
@@ -201,13 +232,13 @@ metrics_config = {
     }}
 ```
 
-- "NARRATIVE_CONTINUITY"
+- NARRATIVE_CONTINUITY: This metric that has binary output.
 
 ```python
 metrics_config = {
     "narrative_continuity_config": {
         "threshold": 0.5,
-        "custom_labels": ["string"],
-        "label_thresholds": [0]
+        "custom_labels": ["bad", "good"],
+        "label_thresholds": [0,1]
     }}
 ```
