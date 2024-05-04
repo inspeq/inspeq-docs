@@ -100,7 +100,7 @@ metrics_config = {
     }}
 ```
 
-- DO_NOT_USE_KEYWORDS: This metric that has binary output.
+- DO_NOT_USE_KEYWORDS: This metric has binary output.
 
 ```python
 metrics_config = {
@@ -122,7 +122,7 @@ metrics_config = {
     }}
 ```
 
-- WORD_LIMIT_TEST: This metric that has binary output.
+- WORD_LIMIT_TEST: This metric has binary output.
 
 ```python
 metrics_config = {
@@ -188,7 +188,7 @@ metrics_config = {
     }}
 ```
 
-- MODEL_REFUSAL: This metric that has binary output.
+- MODEL_REFUSAL: This metric has binary output.
 
 ```python
 metrics_config = {
@@ -199,7 +199,7 @@ metrics_config = {
     }}
 ```
 
-- DATA_LEAKAGE: This metric that has binary output.
+- DATA_LEAKAGE: This metric has binary output.
 
 ```python
 metrics_config = {
@@ -232,7 +232,7 @@ metrics_config = {
     }}
 ```
 
-- NARRATIVE_CONTINUITY: This metric that has binary output.
+- NARRATIVE_CONTINUITY: This metric has binary output.
 
 ```python
 metrics_config = {
