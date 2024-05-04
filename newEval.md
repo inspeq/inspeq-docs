@@ -1,4 +1,4 @@
-## Example using custom configs
+## Example
 
 ```python 
 from inspeq.client import InspeqEval
