@@ -328,3 +328,62 @@ Check if the generated text adheres to specified word limits.
   - Failed (when word limit specified in the input is crossed)
   - NA-Not evaluated (when there’s an error evaluating the response or word limit is not specified)
 
+
+## Prompt Injection
+
+### Definition
+
+Prompt injections involve manipulating the LLM using carefully crafted prompts that make the model ignore previous instructions or perform unintended actions.
+
+### Response Structure
+
+```json
+{
+    "metric_name": "PROMPT_INJECTION_EVALUATION",
+    "actual_value": 0.5128205128205128,
+    "actual_value_type": "FLOAT", 
+    "metric_labels": ["Medium_Confidence"], 
+    "others": {}, 
+    "threshold": ["Pass"], 
+    "threshold_score": 0.5
+}
+```
+
+- `metricName`: Tells metric name
+- `actualValue`: This can range from 0 to 1 (float values).
+- `actualValueType`: The datatype of actualValue i.e. FLOAT in this case.
+- `others`: Additional metadata (currently not much relevant).
+- `metricLabels`:This field categorizes actualValue into different ranges based on pre-defined thresholds. Possible labels for different actualValue for "PROMPT_INJECTION_EVALUATION" ranges:
+    - Low_Confidence
+    - Medium_Confidence
+    - High_Confidence
+
+
+## Insecure Output
+
+### Definition
+
+Insecure output metric detects whether the code provided by llm in response is a malicious/insecure code which can give users unintended access or not. 
+
+### Response Structure
+
+```json
+{
+    "metric_name": "INSECURE_OUTPUT_EVALUATION",
+    "actual_value": 1.0,
+    "actual_value_type": "FLOAT",
+    "metric_labels": ["Detected"],
+    "others": {},
+    "threshold": ["Pass"],
+    "threshold_score": 1.0
+}
+```
+
+- `metricName`: Tells metric name
+- `actualValue`: This can range from 0 to 1 (float values).
+- `actualValueType`: The datatype of actualValue i.e. FLOAT in this case.
+- `others`: Additional metadata (currently not much relevant).
+- `metricLabels`:This field categorizes actualValue into binary labels. Possible labels for different actualValue for "INSECURE_OUTPUT_EVALUATION" ranges:
+    - Detected
+    - Not Detected
+
