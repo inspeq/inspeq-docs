@@ -1,4 +1,4 @@
-## Example
+<!-- ## Example
 
 ```python 
 from inspeq.client import InspeqEval
@@ -241,4 +241,4 @@ metrics_config = {
         "custom_labels": ["bad", "good"],
         "label_thresholds": [0,1]
     }}
-```
+``` -->

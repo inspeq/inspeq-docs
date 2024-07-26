@@ -1,7 +1,5 @@
 # Quickstart
 
-## Inspeq Sdk
-
 ### Installation
 
 ### Create a virtual environment in Linux/Mac/Windows
@@ -63,47 +61,57 @@ Create a python file like main.py where you could use the functions provided by 
 
 from inspeq.client import InspeqEval
 
-
-API_KEY = "your_api_key"
-
-
-inspeq_eval = InspeqEval(inspeq_api_key= API_KEY)
-
-
-input_data={
-   "context": "Paris is the capital of France and its largest city.",
-   "response":"Paris is the capital of France."
- }
+# Initialize the client
+INSPEQ_API_KEY = "your_inspeq_sdk_key"
+INSPEQ_PROJECT_ID = "your_project_id"
+INSPEQ_API_URL = "your_inspeq_backend_url" # Required only for our on-prem customers
 
 
-
-results = inspeq_eval.factual_consistency(input_data= input_data, task_name="your_task_name")
-
-
-print(results)
+inspeq_eval = InspeqEval(inspeq_api_key=INSPEQ_API_KEY, inspeq_project_id=INSPEQ_PROJECT_ID)
 
 
+# Prepare input data
+input_data = [{
+    "prompt": "What is the capital of France?",
+    "response": "Paris is the capital of France.",
+    "context": "The user is asking about European capitals."
+}]
+
+# Define metrics to evaluate
+metrics_list = ["RESPONSE_TONE", "FACTUAL_CONSISTENCY", "ANSWER_RELEVANCE"]
+
+try:
+    results = inspeq_eval.evaluate_llm_task(
+        metrics_list=metrics_list,
+        input_data=input_data,
+        task_name="capital_question"
+    )
+    print(results)
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
+    
 ```
 
 ### Available Metrics 
-
-You can use the following metrics evaluation functions provided by the Inspeq AI Python SDK:
-
-- **Factual Consistency**: `factual_consistency(input_data)`
-- **Answer Relevance**: `answer_relevance(input_data)`
-- **Response Tone**: `response_tone(input_data)`
-- **Do Not Use Keywords**: `do_not_use_keywords(input_data)`
-- **Word Limit Test**: `word_limit_test(input_data)`
-- **Conceptual Similarity**: `conceptual_similarity(input_data)`
-- **Coherence**: `coherence(input_data)`
-- **Readability**: `readability(input_data)`
-- **Clarity**: `clarity(input_data)`
-- **model_refusal**: `model_refusal(input_data)`
-- **data_leakage**: `data_leakage(input_data)`
-- **diversity**: `diversity(input_data)`
-- **creativity**: `creativity(input_data)`
-- **narrative_continuity**: `narrative_continuity(input_data)`
-
-
-To use these functions, simply call the respective function with your input data.
+```
+metrics_list = [
+    "RESPONSE_TONE",
+    "ANSWER_RELEVANCE",
+    "FACTUAL_CONSISTENCY",
+    "CONCEPTUAL_SIMILARITY",
+    "READABILITY",
+    "COHERENCE",
+    "CLARITY",
+    "DIVERSITY",
+    "CREATIVITY",
+    "DATA_LEAKAGE",
+    "DO_NOT_USE_KEYWORDS",
+    "MODEL_REFUSAL",
+    "NARRATIVE_CONTINUITY",
+    "WORD_COUNT_LIMIT",
+    "CREATIVITY",
+    "DIVERSITY"
+]
+```
+To use these metrics, simply pass the respective metrics name with your metrics_list.
 
