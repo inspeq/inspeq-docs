@@ -22,7 +22,7 @@ This document provides an overview of the metrics available in the Inspeq AI SDK
 * ANSWER_FLUENCY
 * GRAMMATICAL_CORRECTNESS
 
-## Metric Definitions and Usage
+# Metric Definitions and Usage
 
 ### General Usage Pattern
 
@@ -63,10 +63,13 @@ except Exception as e:
 
 Replace __METRIC_NAME__ with the specific metric you want to evaluate. 
 
-### Below are examples for each metric:
+## Below are examples for each metric:
 
-* __RESPONSE_TONE__
+
+__RESPONSE_TONE__
+
 Assess the tone and style of the generated response.
+
 Usage
 
 ```python
@@ -78,8 +81,11 @@ input_data = [{
 
 ```
 
-* __ANSWER_RELEVANCE__
-Determine the relevance of the generated text in the context of a given query.
+__ANSWER_RELEVANCE__
+
+Measures the degree to which the generated content directly addresses and pertains to the specific question or prompt provided by the user.
+
+
 Usage
 ```python
 metrics_list = ["ANSWER_RELEVANCE"]
@@ -90,8 +96,11 @@ input_data = [{
 }]
 ```
 
-* __FACTUAL_CONSISTENCY__ 
-Checks if the generated text is consistent with known facts.
+__FACTUAL_CONSISTENCY__ 
+
+Measures the extent of the model hallucinating i.e. model is making up a response based on its imagination or response is grounded in the context supplied
+
+
 Usage
 ```python
 metrics_list = ["FACTUAL_CONSISTENCY"]
@@ -102,9 +111,10 @@ input_data = [{
 }]
 ```
 
-* __CONCEPTUAL_SIMILARITY__
+__CONCEPTUAL_SIMILARITY__
 
-Measure how closely the generated text aligns with the intended conceptual content.
+Measures the extent to which the model response aligns with and reflects the underlying ideas or concepts present in the provided context or prompt.
+
 Usage
 ```python
 metrics_list = ["CONCEPTUAL_SIMILARITY"]
@@ -115,8 +125,10 @@ input_data = [{
 }]
 ```
 
-* __READABILITY__
-Evaluates how easy it is to read and understand the LLM output.
+ __READABILITY__
+
+Assesses whether the model response can be read and understood by the intended audience, taking into account factors such as vocabulary complexity, sentence structure, and overall clarity.
+
 Usage
 ```python
 metrics_list = ["READABILITY"]
@@ -126,8 +138,10 @@ input_data = [{
 }]
 ```
 
-* __COHERENCE__
+__COHERENCE__
+
 Evaluates how well the model generates coherent and logical responses that align with the context of the question.
+
 Usage
 
 ```python
@@ -140,9 +154,10 @@ input_data = [{
 
 ```
 
-* __CLARITY__
+__CLARITY__
 
 Assesses the response's clarity in terms of language and structure, based on grammar, readability, concise sentences and words, and less redundancy or diversity.
+
 Usage
 
 ```python
@@ -152,9 +167,10 @@ input_data = [{
     "response": "Paris is the capital of France."
 }]
 ```
+__DIVERSITY__
 
-* __DIVERSITY__
 Assesses the diversity of vocabulary used in a piece of text.
+
 Usage
 
 ```python
@@ -165,8 +181,10 @@ input_data = [{
 }]
 ```
 
-* __CREATIVITY__
-Evaluates the creativity of AI-generated content using a combination of lexical diversity score, contextual similarity score, and hallucination score.
+__CREATIVITY__
+
+Assesses the ability of the model to generate imaginative, and novel responses that extend beyond standard or expected answers.
+
 Usage
 
 ```python
@@ -178,9 +196,12 @@ input_data = [{
 }]
 ```
 
-* __DATA_LEAKAGE__
+__DATA_LEAKAGE__
+
 Detects whether the model response contains any personal information such as credit card numbers, phone numbers, emails, URLs, etc.
+
 Usage
+
 ```python
 metrics_list = ["DATA_LEAKAGE"]
 
@@ -189,10 +210,12 @@ input_data = [{
 }]
 ```
 
-* __DO_NOT_USE_KEYWORDS__
+__DO_NOT_USE_KEYWORDS__
 
-Identify and evaluate the use of specific keywords or phrases.
+Identifies and evaluate the use of specific keywords or phrases.
+
 Usage
+
 ```python
 metrics_list = ["DO_NOT_USE_KEYWORDS"]
 
@@ -202,10 +225,12 @@ input_data = [{
 
 ```
 
-* __MODEL_REFUSAL__
+__MODEL_REFUSAL__
 
-Detecting whether the model responds with a refusal response or not.
+Identifies rejections in the model responses.
+
 Usage
+
 ```python
 metrics_list = ["MODEL_REFUSAL"]
 
@@ -214,9 +239,10 @@ input_data = [{
 }]
 ```
 
-* __NARRATIVE_CONTINUITY__
+__NARRATIVE_CONTINUITY__
 
-Evaluates whether a generated response maintains coherence and logical flow with the preceding narrative, without introducing abrupt or illogical shifts.
+Measures the consistency and logical flow of the response throughout the generated text, ensuring that the progression of events remains coherent and connected. 
+
 Usage
 ```python
 metrics_list = ["NARRATIVE_CONTINUITY"]
@@ -226,9 +252,10 @@ input_data = [{
 }]
 ```
 
-* __WORD_COUNT_LIMIT__
+__WORD_COUNT_LIMIT__
 
-Check if the generated text adheres to specified word limits.
+Checks if the generated text adheres to specified word limits.
+
 Usage
 
 ```python
@@ -240,9 +267,10 @@ input_data = [{
 }]
 ```
 
-* __INSECURE_OUTPUT__
+__INSECURE_OUTPUT__
 
-Detects whether the code provided by LLM in response is a malicious/insecure code which can give users unintended access or not.
+ Detects any potentially harmful responses that could lead to system vulnerabilities. Eg. detects any  mallicious code, Javascript or Markdown generated by the model that could result in XSS.
+
 Usage
 ```python
 metrics_list = ["INSECURE_OUTPUT"]
@@ -253,9 +281,10 @@ input_data = [{
 ```
 
 
-* __ANSWER_FLUENCY__
+__ANSWER_FLUENCY__
 
-Evaluates the fluency and naturalness of the generated answer.
+Assesses the smoothness and coherence with which the model generates language that is easily understandable and grammatically correct.
+
 Usage
 
 ```python
@@ -266,9 +295,11 @@ input_data = [{
 }]
 ```
 
-* __GRAMMATICAL_CORRECTNESS__
 
-Assesses the grammatical correctness of the generated text.
+__GRAMMATICAL_CORRECTNESS__
+
+Checks whether the model response adherence to the rules of syntax, is free from errors and follows the conventions of the target language.
+
 Usage
 
 ```python
