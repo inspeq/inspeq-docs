@@ -1,57 +1,31 @@
-# Quickstart
+# QuickstartQuickstart Guide for Inspeq AI SDK
 
 ### Installation
 
-### Create a virtual environment in Linux/Mac/Windows
-
-### Linux OS / MAC OS
-### Using venv (Python 3)
-
-1. Open a terminal.
-2. Navigate to the directory where you want to create the virtual environment.
-3. Run the following command:
-
-```bash
-   python3 -m venv venv
-```
-
-#### Activate it
-
+#### Activate the python environment
 ```bash
   source venv/bin/activate
 ```
 
-### Windows
-
-1. Open a terminal.
-2. Navigate to the directory where you want to create the virtual environment.
-3. Run the following command:
-
-```bash
-   python -m venv venv
-```
-
-#### Activate the virtual environment
-
-```bash
-venv\Scripts\activate
-```
-
-#### Make sure your environment is activated everytime you use package
-
-### Python package installation
+### Inspeq Python package installation
 
 To install inspeqai python sdk, you can follow these steps:
+
+Get latest version from [Here](https://pypi.org/project/inspeqai/)
 
 ```bash
 pip install inspeqai
 ```
+Install dotenv package if not installed already
 
-Get latest version from [Here](https://pypi.org/project/inspeqai/)
+Get latest version from [Here](https://pypi.org/project/python-dotenv/)
+```bash
+pip install python-dotenv
+```
 
 #### Get API keys
 
-Get your API keys from [Here](https://app.inspeq.ai/)
+Get your API keys from [Here](https://platform.inspeq.ai/)
 
 #### Usage
 
@@ -64,7 +38,7 @@ from inspeq.client import InspeqEval
 # Initialize the client
 INSPEQ_API_KEY = "your_inspeq_sdk_key"
 INSPEQ_PROJECT_ID = "your_project_id"
-INSPEQ_API_URL = "your_inspeq_backend_url" # Required only for our on-prem customers
+INSPEQ_API_URL = "your_inspeq_backend_url" #  NOTE : Required only for our on-prem customers
 
 
 inspeq_eval = InspeqEval(inspeq_api_key=INSPEQ_API_KEY, inspeq_project_id=INSPEQ_PROJECT_ID)
@@ -76,6 +50,7 @@ input_data = [{
     "response": "Paris is the capital of France.",
     "context": "The user is asking about European capitals."
 }]
+# You can pass multiple set of input data object
 
 # Define metrics to evaluate
 metrics_list = ["RESPONSE_TONE", "FACTUAL_CONSISTENCY", "ANSWER_RELEVANCE"]
@@ -109,9 +84,11 @@ metrics_list = [
     "MODEL_REFUSAL",
     "NARRATIVE_CONTINUITY",
     "WORD_COUNT_LIMIT",
-    "CREATIVITY",
-    "DIVERSITY"
+    "INSECURE_OUTPUT",
+    "ANSWER_FLUENCY",
+    "GRAMMATICAL_CORRECTNESS"
 ]
+
 ```
 To use these metrics, simply pass the respective metrics name with your metrics_list.
 
