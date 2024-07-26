@@ -69,8 +69,6 @@ Replace __METRIC_NAME__ with the specific metric you want to evaluate.
 Assess the tone and style of the generated response.
 Usage
 
-python
-
 ```python
 metrics_list = ["RESPONSE_TONE"]
 
@@ -281,6 +279,6 @@ input_data = [{
 }]
 ```
 
-Note on Configuration
+__Note on Configuration__
 
 The SDK uses default configurations for each metric. You can override these defaults by providing your own config_input parameter when calling evaluate_llm_task.
