@@ -47,7 +47,7 @@ Complete list of output fields is as below:
 - `created_by`: Entity that created the evaluation (e.g., "SYSTEM")
 - `updated_by`: Entity that last updated the evaluation
 - `is_deleted`: Boolean indicating if the evaluation has been deleted
-- `metric_evaluation_status`: __Overall status of the metric evaluation request (e.g., "PASS", "FAIL"). This will be "FAIL" if inspeq is not able to evalaute the metric due to internal reasons__
+- `metric_evaluation_status`: __Overall status of the metric evaluation request (e.g., "PASS", "FAIL", "EVAL_FAIL"). This will be "EVAL_FAIL" if inspeq is not able to evalaute the metric due to internal reasons__
 
 ## Evaluation Details
 
