@@ -46,13 +46,13 @@ Inspeq AI's SDK includes these powerful metrics to evaluate and monitor various 
 * Clarity
 * Diversity
 * Creativity
-* Data Leakage
-* Do Not Use Keywords
-* Model Refusal
+<!-- * Data Leakage -->
+<!-- * Do Not Use Keywords -->
+<!-- * Model Refusal -->
 * Narrative Continuity
-* Word Count Limit
-* Insecure Output
-* Answer Fluency
+<!-- * Word Count Limit -->
+<!-- * Insecure Output -->
+<!-- * Answer Fluency -->
 * Grammatical Correctness
 
 These metrics, categorized as either Customizable or Binary, provide a comprehensive framework for ensuring reliable and compliant LLM applications.
