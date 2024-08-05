@@ -79,13 +79,7 @@ metrics_list = [
     "CLARITY",
     "DIVERSITY",
     "CREATIVITY",
-    <!-- "DATA_LEAKAGE", -->
-    <!-- "DO_NOT_USE_KEYWORDS", -->
-    <!-- "MODEL_REFUSAL", -->
     "NARRATIVE_CONTINUITY",
-    <!-- "WORD_COUNT_LIMIT", -->
-    <!-- "INSECURE_OUTPUT", -->
-    <!-- "ANSWER_FLUENCY", -->
     "GRAMMATICAL_CORRECTNESS"
 ]
 
