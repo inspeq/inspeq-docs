@@ -1,26 +1,83 @@
-# Metrics
+# Inspeq Metrics
 
 This document provides an overview of the metrics available in the Inspeq AI SDK, along with their definitions and usage examples.
 
 #### Available Metrics
+<details> <summary>RESPONSE_TONE</summary>
 
-* RESPONSE_TONE
-* ANSWER_RELEVANCE
-* FACTUAL_CONSISTENCY
-* CONCEPTUAL_SIMILARITY
-* READABILITY
-* COHERENCE
-* CLARITY
-* DIVERSITY
-* CREATIVITY
+Assess the tone and style of the generated response.
+
+Usage
+
+```python
+metrics_list = ["RESPONSE_TONE"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+
+```
+</details>
+
+<details>
+<summary>ANSWER_RELEVANCE</summary>
+
+Measures the degree to which the generated content directly addresses and pertains to the specific question or prompt provided by the user.
+
+
+Usage
+```python
+metrics_list = ["ANSWER_RELEVANCE"]
+
+input_data = [{
+    "prompt": "What is the capital of France?",
+    "response": "Paris is the capital of France."
+}]
+```
+</details>
+ <details>
+<summary>FACTUAL_CONSISTENCY</summary>
+
+Measures the extent of the model hallucinating i.e. model is making up a response based on its imagination or response is grounded in the context supplied
+
+
+Usage
+```python
+metrics_list = ["FACTUAL_CONSISTENCY"]
+
+input_data = [{
+    "context": "Paris is the capital of France and its largest city.",
+    "response": "Paris is the capital of France."
+}]
+```
+</details>
+<details>
+<summary>CONCEPTUAL_SIMILARITY</summary>
+
+</details> 
+<details>
+<summary>READABILITY</summary>
+</details> <details>
+<summary>COHERENCE</summary>
+</details> <details>
+<summary>CLARITY</summary>
+</details> <details>
+<summary>DIVERSITY</summary>
+</details> <details>
+<summary>CREATIVITY</summary>
+</details>
 <!-- * DATA_LEAKAGE -->
 <!-- * DO_NOT_USE_KEYWORDS -->
 <!-- * MODEL_REFUSAL -->
-* NARRATIVE_CONTINUITY
+<details>
+<summary>NARRATIVE_CONTINUITY</summary>
+</details>
 <!-- * WORD_COUNT_LIMIT -->
 <!-- * INSECURE_OUTPUT -->
 <!-- * ANSWER_FLUENCY -->
-* GRAMMATICAL_CORRECTNESS
+<details>
+<summary>GRAMMATICAL_CORRECTNESS</summary>
+</details>
 
 # Metric Definitions and Usage
 
@@ -64,52 +121,6 @@ except Exception as e:
 Replace __METRIC_NAME__ with the specific metric you want to evaluate. 
 
 ## Below are examples for each metric:
-
-
-__RESPONSE_TONE__
-
-Assess the tone and style of the generated response.
-
-Usage
-
-```python
-metrics_list = ["RESPONSE_TONE"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-
-```
-
-__ANSWER_RELEVANCE__
-
-Measures the degree to which the generated content directly addresses and pertains to the specific question or prompt provided by the user.
-
-
-Usage
-```python
-metrics_list = ["ANSWER_RELEVANCE"]
-
-input_data = [{
-    "prompt": "What is the capital of France?",
-    "response": "Paris is the capital of France."
-}]
-```
-
-__FACTUAL_CONSISTENCY__ 
-
-Measures the extent of the model hallucinating i.e. model is making up a response based on its imagination or response is grounded in the context supplied
-
-
-Usage
-```python
-metrics_list = ["FACTUAL_CONSISTENCY"]
-
-input_data = [{
-    "context": "Paris is the capital of France and its largest city.",
-    "response": "Paris is the capital of France."
-}]
-```
 
 __CONCEPTUAL_SIMILARITY__
 
