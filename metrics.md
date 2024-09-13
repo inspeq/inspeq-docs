@@ -54,29 +54,128 @@ input_data = [{
 <details>
 <summary>CONCEPTUAL_SIMILARITY</summary>
 
+Measures the extent to which the model response aligns with and reflects the underlying ideas or concepts present in the provided context or prompt.
+
+Usage
+```python
+metrics_list = ["CONCEPTUAL_SIMILARITY"]
+
+input_data = [{
+    "context": "Paris is the capital of France and its largest city.",
+    "response": "Paris is the capital of France."
+}]
+```
 </details> 
 <details>
 <summary>READABILITY</summary>
-</details> <details>
+
+Assesses whether the model response can be read and understood by the intended audience, taking into account factors such as vocabulary complexity, sentence structure, and overall clarity.
+
+Usage
+```python
+metrics_list = ["READABILITY"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+```
+</details>
+ <details>
 <summary>COHERENCE</summary>
+
+Evaluates how well the model generates coherent and logical responses that align with the context of the question.
+
+Usage
+
+```python
+metrics_list = ["COHERENCE"]
+
+input_data = [{
+    "context": "Paris is the capital of France and its largest city.",
+    "response": "Paris is the capital of France."
+}]
+
+```
 </details> <details>
 <summary>CLARITY</summary>
+
+Assesses the response's clarity in terms of language and structure, based on grammar, readability, concise sentences and words, and less redundancy or diversity.
+
+Usage
+
+```python
+metrics_list = ["CLARITY"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+```
 </details> <details>
 <summary>DIVERSITY</summary>
+
+Assesses the diversity of vocabulary used in a piece of text.
+
+Usage
+
+```python
+metrics_list = ["DIVERSITY"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+```
 </details> <details>
 <summary>CREATIVITY</summary>
+
+Assesses the ability of the model to generate imaginative, and novel responses that extend beyond standard or expected answers.
+
+Usage
+
+```python
+metrics_list = ["CREATIVITY"]
+
+input_data = [{
+    "response": "Paris is the capital of France.",
+    "context": "Paris is the capital of France and its largest city."
+}]
+```
 </details>
 <!-- * DATA_LEAKAGE -->
 <!-- * DO_NOT_USE_KEYWORDS -->
 <!-- * MODEL_REFUSAL -->
 <details>
 <summary>NARRATIVE_CONTINUITY</summary>
+
+Measures the consistency and logical flow of the response throughout the generated text, ensuring that the progression of events remains coherent and connected. 
+
+Usage
+```python
+metrics_list = ["NARRATIVE_CONTINUITY"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+```
 </details>
 <!-- * WORD_COUNT_LIMIT -->
 <!-- * INSECURE_OUTPUT -->
 <!-- * ANSWER_FLUENCY -->
 <details>
 <summary>GRAMMATICAL_CORRECTNESS</summary>
+
+__GRAMMATICAL_CORRECTNESS__
+
+Checks whether the model response adherence to the rules of syntax, is free from errors and follows the conventions of the target language.
+
+Usage
+
+```python
+metrics_list = ["GRAMMATICAL_CORRECTNESS"]
+
+input_data = [{
+    "response": "Paris is the capital of France."
+}]
+```
 </details>
 
 # Metric Definitions and Usage
@@ -121,91 +220,6 @@ except Exception as e:
 Replace __METRIC_NAME__ with the specific metric you want to evaluate. 
 
 ## Below are examples for each metric:
-
-__CONCEPTUAL_SIMILARITY__
-
-Measures the extent to which the model response aligns with and reflects the underlying ideas or concepts present in the provided context or prompt.
-
-Usage
-```python
-metrics_list = ["CONCEPTUAL_SIMILARITY"]
-
-input_data = [{
-    "context": "Paris is the capital of France and its largest city.",
-    "response": "Paris is the capital of France."
-}]
-```
-
- __READABILITY__
-
-Assesses whether the model response can be read and understood by the intended audience, taking into account factors such as vocabulary complexity, sentence structure, and overall clarity.
-
-Usage
-```python
-metrics_list = ["READABILITY"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-```
-
-__COHERENCE__
-
-Evaluates how well the model generates coherent and logical responses that align with the context of the question.
-
-Usage
-
-```python
-metrics_list = ["COHERENCE"]
-
-input_data = [{
-    "context": "Paris is the capital of France and its largest city.",
-    "response": "Paris is the capital of France."
-}]
-
-```
-
-__CLARITY__
-
-Assesses the response's clarity in terms of language and structure, based on grammar, readability, concise sentences and words, and less redundancy or diversity.
-
-Usage
-
-```python
-metrics_list = ["CLARITY"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-```
-__DIVERSITY__
-
-Assesses the diversity of vocabulary used in a piece of text.
-
-Usage
-
-```python
-metrics_list = ["DIVERSITY"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-```
-
-__CREATIVITY__
-
-Assesses the ability of the model to generate imaginative, and novel responses that extend beyond standard or expected answers.
-
-Usage
-
-```python
-metrics_list = ["CREATIVITY"]
-
-input_data = [{
-    "response": "Paris is the capital of France.",
-    "context": "Paris is the capital of France and its largest city."
-}]
-```
 <!-- 
 __DATA_LEAKAGE__
 
@@ -250,19 +264,6 @@ input_data = [{
 }] -->
 <!-- ``` -->
 
-__NARRATIVE_CONTINUITY__
-
-Measures the consistency and logical flow of the response throughout the generated text, ensuring that the progression of events remains coherent and connected. 
-
-Usage
-```python
-metrics_list = ["NARRATIVE_CONTINUITY"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-```
-
 
 <!-- __WORD_COUNT_LIMIT__
 
@@ -306,21 +307,6 @@ input_data = [{
     "response": "Paris is the capital of France."
 }]
 ``` -->
-
-
-__GRAMMATICAL_CORRECTNESS__
-
-Checks whether the model response adherence to the rules of syntax, is free from errors and follows the conventions of the target language.
-
-Usage
-
-```python
-metrics_list = ["GRAMMATICAL_CORRECTNESS"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-```
 
 __Note on Configuration__
 
