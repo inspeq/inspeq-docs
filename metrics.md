@@ -3,45 +3,83 @@
 This document provides an overview of the metrics available in the Inspeq AI SDK, along with their definitions and usage examples.
 
 #### Available Metrics
-<details> <summary>RESPONSE_TONE</summary>
+<details><summary>RESPONSE_TONE</summary>
 
-Assess the tone and style of the generated response.
+**Objective**
 
-Usage
+Assess the tone and style of the generated response, ensuring it aligns with the desired or appropriate tone for the context and audience.
+
+**Required Parameters**
+
+- `response`
+
+**Interpretation**
+
+The metric output will indicate the detected tone of the response, such as "Positive", "Negative", "Friendly", "Professional", "Sarcastic", etc. This helps determine whether the response's tone is appropriate for the given context and audience.
+
+**Usage**
 
 ```python
 metrics_list = ["RESPONSE_TONE"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": "Ugh, do I really have to explain this? Fine. Quantum physics is like, tiny particles doing weird stuff."
 }]
 
 ```
+
 </details>
 
 <details>
 <summary>ANSWER_RELEVANCE</summary>
 
+**Objective**
+
 Measures the degree to which the generated content directly addresses and pertains to the specific question or prompt provided by the user.
 
+**Required Parameters**
+- `prompt`
+- `response`
 
-Usage
+**Interpretation**
+
+The metric output will indicate whether the response is relevant to the prompt, providing a relevance score and result. A high relevance score means the response appropriately addresses the user's question, while a low score indicates it may be off-topic or unrelated.
+
+**Usage**
 ```python
 metrics_list = ["ANSWER_RELEVANCE"]
 
 input_data = [{
-    "prompt": "What is the capital of France?",
-    "response": "Paris is the capital of France."
+    "prompt": "Can you explain how photosynthesis works in plants?",
+    "response": "Photosynthesis is the process by which green plants use sunlight to synthesize foods from carbon dioxide and water. It involves the green pigment chlorophyll and generates oxygen as a byproduct."
 }]
 ```
+
+
 </details>
- <details>
+
+<details>
+
 <summary>FACTUAL_CONSISTENCY</summary>
 
-Measures the extent of the model hallucinating i.e. model is making up a response based on its imagination or response is grounded in the context supplied
+**Objective**
+
+Measures the extent to which the model's response is factually accurate and consistent with the provided context, detecting any hallucinations or factual errors.
+
+**Required Parameters**
+
+- `context`
+- `response`
+ 
+**Interpretation**
+
+- Lower factual consistency score indicates the model is not able to focus on the correct context document.
+- Lower factual consistency score indicates the model is hallucinating and generating information not present in the context documents. 
+- Lower factual consistency score indicates the Knowledge Base has contradicting information regarding the topic referred to in the prompt.
 
 
-Usage
+**Usage**
+
 ```python
 metrics_list = ["FACTUAL_CONSISTENCY"]
 
@@ -51,92 +89,203 @@ input_data = [{
 }]
 ```
 </details>
+
 <details>
 <summary>CONCEPTUAL_SIMILARITY</summary>
 
-Measures the extent to which the model response aligns with and reflects the underlying ideas or concepts present in the provided context or prompt.
+**Objective**
 
-Usage
+Measures the extent to which the model's response aligns with and reflects the underlying ideas or concepts present in the provided context or prompt.
+
+**Required Parameters**
+
+- `context`
+- `response`
+
+**Interpretation**
+A higher conceptual similarity score indicates that the response effectively captures the main ideas and concepts from the context, even if the wording is different. A lower score suggests that the response may not adequately reflect the core concepts of the context or may introduce unrelated information.
+
+**Usage**
+
 ```python
 metrics_list = ["CONCEPTUAL_SIMILARITY"]
 
 input_data = [{
-    "context": "Paris is the capital of France and its largest city.",
-    "response": "Paris is the capital of France."
+    "context": (
+        "Electric vehicles (EVs) are becoming increasingly popular due to their environmental benefits. "
+        "They produce zero tailpipe emissions, reducing air pollution and dependence on fossil fuels. "
+        "Advancements in battery technology are improving their range and affordability."
+    ),
+    "response": (
+        "The rise of electric cars is driven by their positive impact on the environment. "
+        "They emit no pollutants from the exhaust, helping to decrease air pollution and lessen reliance on oil. "
+        "Better batteries are making them more accessible and able to travel farther."
+    )
 }]
 ```
 </details> 
 <details>
 <summary>READABILITY</summary>
 
-Assesses whether the model response can be read and understood by the intended audience, taking into account factors such as vocabulary complexity, sentence structure, and overall clarity.
+**Objective**
 
-Usage
+Assesses whether the model's response can be read and understood by the intended audience, taking into account factors such as vocabulary complexity, sentence structure, and overall clarity.
+
+**Required Parameters**
+
+- `response`
+
+**Interpretation**
+
+The metric evaluates the readability of the response and provides a score that indicates how easy or difficult the text is to read:
+- "Sophisticated": The text is complex and may be challenging for the average reader due to advanced vocabulary and intricate sentence structures.
+- "Moderate": The text has a moderate level of complexity and is generally understandable by most readers.
+- "Easy": The text is easy to read and understand, using simple vocabulary and clear sentence structures.
+
+**Usage**
+
 ```python
 metrics_list = ["READABILITY"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": (
+        "In an effort to elucidate the intricate mechanisms underpinning mitochondrial biogenesis, "
+        "the researchers employed a multidisciplinary approach, integrating advanced genomic sequencing techniques "
+        "with high-resolution microscopy. Their findings substantiate the hypothesis that mitochondrial DNA replication "
+        "is intricately regulated by both nuclear and cytoplasmic factors, thereby offering novel insights into cellular bioenergetics."
+    )
 }]
 ```
 </details>
- <details>
+<details>
+
 <summary>COHERENCE</summary>
+
+**Objective**
 
 Evaluates how well the model generates coherent and logical responses that align with the context of the question.
 
-Usage
+**Required Parameters**
+
+- `context`
+- `response`
+
+**Interpretation**
+
+The metric provides a coherence score between 0 and 1, indicating the logical flow and consistency of the response with the context.
+- "Incoherent" – The response is not logically connected to the context and may contain contradictions or irrelevant information.
+- "Slightly Coherent" – The response has some logical connection to the context but may contain minor inconsistencies or unclear elements.
+- "Coherent" – The response is logically consistent and flows naturally from the context.
+
+**Usage**
 
 ```python
 metrics_list = ["COHERENCE"]
 
 input_data = [{
-    "context": "Paris is the capital of France and its largest city.",
-    "response": "Paris is the capital of France."
+    "context": (
+        "After months of preparation, the team was finally ready to launch the new software product. "
+        "They had worked tirelessly to ensure that everything was perfect for the big day."
+    ),
+    "response": (
+        "The launch event was a huge success. Customers were impressed with the new features, "
+        "and the team celebrated their achievement."
+    )
 }]
 
 ```
 </details> <details>
 <summary>CLARITY</summary>
 
-Assesses the response's clarity in terms of language and structure, based on grammar, readability, concise sentences and words, and less redundancy or diversity.
+**Objective**
 
-Usage
+Assesses the response's clarity in terms of language and structure, focusing on grammar, readability, conciseness, and the avoidance of redundancy or unnecessary complexity.
+
+**Required Parameters**
+- `response`
+
+**Interpretation**
+
+The metric evaluates the clarity of the response and provides a score between 0 and 1, indicating how clear and understandable the text is:
+- "Unclear": The response may be confusing, verbose, or contain redundancies that hinder understanding.
+- "Somewhat Clear": The response is generally understandable but may have minor issues affecting clarity.
+- "Clear": The response is well-written, concise, and easy to understand.
+
+
+**Usage**
 
 ```python
 metrics_list = ["CLARITY"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": (
+        "In light of the aforementioned factors and taking into consideration the various perspectives that have been presented, "
+        "it is of paramount importance to acknowledge that the implementation of the proposed strategy could potentially yield "
+        "significant benefits, notwithstanding the challenges that may arise during its execution."
+    )
 }]
 ```
-</details> <details>
+</details> 
+
+<details>
 <summary>DIVERSITY</summary>
 
-Assesses the diversity of vocabulary used in a piece of text.
+**Objective**
 
-Usage
+Assesses the diversity of vocabulary used in a piece of text by calculating the Type to Token Ratio (TTR), which is the ratio of unique words (types) to the total number of words (tokens). This metric helps identify whether the text is rich in vocabulary or contains redundancy due to repeated words.
+
+**Required Parameters**
+- `response`
+
+**Interpretation**
+
+The metric calculates the Type to Token Ratio (TTR) as the score:
+- "Redundant": The text has low vocabulary diversity, indicating a high level of word repetition.
+- "Not Redundant": The text has sufficient vocabulary diversity with less repetition.
+
+**Usage**
 
 ```python
 metrics_list = ["DIVERSITY"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": (
+        "The cat chased the mouse. The dog chased the cat. The mouse chased the cheese. "
+        "The cat, the dog, and the mouse ran around the house."
+    )
 }]
 ```
 </details> <details>
 <summary>CREATIVITY</summary>
 
-Assesses the ability of the model to generate imaginative, and novel responses that extend beyond standard or expected answers.
+**Objective**
 
-Usage
+Assesses the ability of the model to generate imaginative and novel responses that extend beyond standard or expected answers.
+
+**Required Parameters**
+- `response`
+- `context` (optional but recommended)
+
+**Interpretation**
+
+- "Not Creative": The response is standard or expected, lacking imaginative or novel elements.
+- "Creative": The response demonstrates originality and imagination beyond typical answers.
+
+**Usage**
 
 ```python
 metrics_list = ["CREATIVITY"]
 
 input_data = [{
-    "response": "Paris is the capital of France.",
-    "context": "Paris is the capital of France and its largest city."
+    "response": (
+        "In the heart of Paris, the Eiffel Tower transforms into a beacon of stars each night, "
+        "guiding dreamers through a city where streets change their paths with every dawn. "
+        "Artists paint with colors unseen, and melodies float from the Seine, whispering secrets of time."
+    ),
+    "context": (
+        "Paris is the capital of France, known for its rich history, art, fashion, and landmarks "
+        "like the Eiffel Tower and the Seine River."
+    )
 }]
 ```
 </details>
@@ -146,14 +295,29 @@ input_data = [{
 <details>
 <summary>NARRATIVE_CONTINUITY</summary>
 
-Measures the consistency and logical flow of the response throughout the generated text, ensuring that the progression of events remains coherent and connected. 
+**Objective**
+
+Measures the consistency and logical flow of the response throughout the generated text, ensuring that the progression of events remains coherent and connected.
+
+**Required Parameters**
+- `response`
+
+**Interpretation**
+
+The metric evaluates the narrative flow of the response and categorizes it as:
+- "Continuous": The narrative is consistent, with events logically connected and progressing smoothly.
+- "Not Continuous": The narrative has inconsistencies, abrupt changes, or lacks logical progression, leading to a disjointed story.
 
 Usage
 ```python
 metrics_list = ["NARRATIVE_CONTINUITY"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": (
+        "Emily woke up early and decided to go for a run in the park. "
+        "As she jogged, the sun rose, painting the sky with hues of pink and orange. "
+        "After her run, she stopped by a café for breakfast, enjoying a warm croissant and a cup of coffee."
+    )
 }]
 ```
 </details>
@@ -163,165 +327,362 @@ input_data = [{
 <details>
 <summary>GRAMMATICAL_CORRECTNESS</summary></br>
 
-Checks whether the model response adherence to the rules of syntax, is free from errors and follows the conventions of the target language.
+**Objective**
 
-Usage
+Checks whether the model's response adheres to the rules of syntax, is free from grammatical errors, and follows the conventions of the target language.
+
+**Required Parameters**
+- `response`
+
+**Interpretation**
+
+The metric evaluates the grammatical correctness of the response and provides a score between 0 and 1:
+- "Incorrect" – The response contains significant grammatical errors that hinder understanding.
+- "Partially Correct" – The response has some grammatical errors but is generally understandable.
+- "Correct" – The response is grammatically correct or has minor errors that do not affect understanding.
+
+**Usage**
 
 ```python
 metrics_list = ["GRAMMATICAL_CORRECTNESS"]
 
 input_data = [{
-    "response": "Paris is the capital of France."
+    "response": "She don't know nothing about no computers."
 }]
 ```
 </details>
 
+
 # Metrics for Summarization
+
 <details>
 <summary>BERT Score</summary></br>
 
-**BERTScore**  is a metric that evaluates how semantically similar a generated summary is to a reference summary using BERT's contextual embeddings. Instead of relying on exact word matches, it compares the meaning of words in the summaries, offering a deeper understanding of content similarity. This makes BERTScore particularly useful for summarization tasks, as it captures nuances in meaning rather than just surface-level similarities.
+**Objective**
+
+Evaluates how semantically similar a generated summary is to a reference summary using BERT's contextual embeddings. Instead of relying on exact word matches, it compares the meaning of words in the summaries, offering a deeper understanding of content similarity. This makes BERTScore particularly useful for summarization tasks, as it captures nuances in meaning rather than just surface-level similarities.
+
+**Required Parameters**
+
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- Linguistically Congruent: Indicates that the generated summary is semantically similar to the original text, effectively capturing the main ideas and nuances.
+- Linguistically Incongruent: Suggests that the summary is not semantically aligned with the original text, potentially missing key information or introducing inaccuracies.
+
+**Usage**
 
 ```python
 metrics_list = ["BERT_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "In a groundbreaking discovery, astronomers have detected signs of water vapor "
+        "in the atmosphere of a planet located in the habitable zone of its star. "
+        "This exoplanet, named K2-18b, is eight times the mass of Earth and lies about 110 light-years away. "
+        "The presence of water vapor suggests that the planet could potentially support life."
+    ),
+    "llm_output": (
+        "Astronomers have found water vapor on exoplanet K2-18b, which resides in its star's habitable zone, "
+        "raising the possibility that it could support life."
+    )
+}]
 ```
 </details>
+
 <details>
 <summary>Bleu Score</summary></br>
-**BLEU score (Bilingual Evaluation Understudy)** is a metric used to evaluate the quality of text generated by models, such as summaries, by comparing it to one or more reference texts. For summarization, it measures how many words or phrases in the generated summary match the reference summary, with a focus on exact word matches, n-grams (sequences of words), and word order. A higher BLEU score indicates a closer match to the reference summary.
+
+**Objective**
+
+The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate the quality of text generated by models, such as translations or summaries, by comparing it to one or more reference texts. For summarization, it measures the overlap of words and phrases (n-grams) between the generated summary and the reference summary, focusing on exact matches and word order. A higher BLEU score indicates a closer match to the reference summary, suggesting that the generated text conforms well to expected content.
+
+**Required Parameters**
+
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+- `reference_summary` (optional but recommended): A reference summary to compare against.
+
+**Interpretation**
+
+- "Highly Conforming": Indicates that the generated summary closely matches the reference summary in terms of word choice and order.
+- "Poorly Conforming": Suggests that the generated summary has little overlap with the reference summary, potentially missing key information or differing significantly in wording.
 
 ```python
 metrics_list = ["BLEU_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "Scientists have discovered a new species of bird in the remote mountains of South America. "
+        "This bird, characterized by its vibrant plumage and unique song, adds to the biodiversity of the region. "
+        "Conservationists are urging for the area to be protected to preserve its habitat."
+    ),
+    "llm_output": (
+        "A new bird species with vibrant feathers and a unique song has been found in South America's remote mountains. "
+        "Scientists emphasize the need to protect its habitat."
+    ),
+    # Reference summary for BLEU score calculation
+    "reference_summary": (
+        "Researchers discovered a vibrant new bird species in South American mountains. "
+        "They call for habitat conservation to protect this unique bird."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Compression Score</summary></br>
-<b>The compression score</b> in summarization tasks measures the ratio of the length of the generated summary to the length of the original text. It quantifies how much the text has been condensed. Typically, a lower compression score indicates a more concise summary, while a higher score suggests the summary is closer in length to the original text.
 
+**Objective**
+
+The Compression Score in summarization tasks measures the ratio of the length of the generated summary to the length of the original text. It quantifies how much the text has been condensed. A higher Compression Score indicates a more concise summary (greater compression), while a lower Compression Score suggests the summary is closer in length to the original text (less compression).
+
+**Required Parameters**
+
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- "Compact Summary": The summary is significantly shorter than the original text, indicating effective condensation.
+- "Loose Summary": The summary is close in length to the original text, suggesting minimal condensation.
+
+**Usage**
 ```python
 metrics_list = ["COMPRESSION_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "In a significant breakthrough, a team of international scientists has developed a new vaccine "
+        "that provides immunity against multiple strains of influenza. The vaccine utilizes novel mRNA technology, "
+        "allowing for rapid adaptation to emerging flu variants. Clinical trials have shown a 95% effectiveness rate, "
+        "marking a substantial improvement over traditional flu vaccines. Health organizations worldwide are "
+        "optimistic about the potential to reduce annual flu-related illnesses and deaths."
+    ),
+    "llm_output": (
+        "Scientists develop a new mRNA vaccine offering 95% effectiveness against multiple influenza strains, "
+        "promising to reduce global flu cases significantly."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Cosine Similarity Score</summary></br>
-<b>Cosine similarity</b> is used to measure the similarity between the original text and the generated summary. It treats both the original and the summary as vectors in a multi-dimensional space, where each dimension represents a word or token. The cosine similarity metric computes the cosine of the angle between these two vectors, providing a value between -1 and 1. A value closer to 1 indicates high similarity, while a value closer to 0 or negative values suggests low similarity.
+
+**Objective**
+
+The Cosine Similarity Score is used to measure the similarity between the original text and the generated summary. It treats both the original text and the summary as vectors in a multi-dimensional space, where each dimension represents a word or token. The cosine similarity metric computes the cosine of the angle between these two vectors, providing a value between -1 and 1. A value closer to 1 indicates high similarity (Contextual Synchrony), while a value closer to 0 or negative values suggest low similarity (Contextual Divergence).
+
+**Required Parameters**
+
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- "Contextual Synchrony": Indicates that the summary is highly similar to the original text in terms of content and context.
+- "Contextual Divergence": Suggests that the summary diverges significantly from the original text, possibly omitting key information or introducing irrelevant content.
 
 ```python
 metrics_list = ["COSINE_SIMILARITY_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "A recent study published in the Journal of Environmental Science has revealed that planting urban gardens "
+        "can significantly reduce air pollution in cities. The researchers found that certain plant species are "
+        "particularly effective at absorbing pollutants like nitrogen dioxide and particulate matter. "
+        "These findings suggest that urban greenery could play a crucial role in improving air quality and public health."
+    ),
+    "llm_output": (
+        "Urban gardens with specific plants can significantly reduce city air pollution by absorbing harmful pollutants, "
+        "according to a new environmental study."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Density Score</summary></br>
-<b>Density score</b> is a metric that measures how much of the generated summary reuses words from the original text and how those words are distributed within the summary. A higher density score indicates that the summary is more extractive, meaning it contains more verbatim content from the original text. Lower density scores suggest that the summary is more abstractive, meaning it paraphrases or generates new content rather than copying from the original text.
+
+**Objective**
+
+The Density Score is a metric that measures how much of the generated summary reuses words from the original text and how those words are distributed within the summary. A higher density score indicates that the summary is more extractive, meaning it contains more verbatim content from the original text. Lower density scores suggest that the summary is more abstractive, meaning it paraphrases or generates new content rather than copying from the original text.
+
+**Required Parameters**
+
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- "Concise Summarization": Indicates that the summary heavily reuses words and phrases from the original text, resulting in a more extractive and concise summarization.
+- "Verbose Summarization": Suggests that the summary uses fewer words from the original text, opting for paraphrasing or introducing new content.
+
+**Usage**
 
 ```python
 metrics_list = ["DENSITY_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "A team of engineers has developed a new battery technology that can charge electric vehicles in just 10 minutes. "
+        "The breakthrough involves a novel electrode design that allows for faster ion movement, significantly reducing charging times. "
+        "This innovation could accelerate the adoption of electric vehicles by addressing one of the main concerns of consumers."
+    ),
+    "llm_output": (
+        "Engineers develop new battery technology enabling electric vehicles to charge in 10 minutes, potentially boosting EV adoption."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Euclidian distance</summary></br>
 
-<b>The Euclidean distance</b> score can be used to evaluate how close a generated summary is to a reference summary (or the original text). A smaller distance indicates that the two texts (the summary and reference) are more similar in terms of their underlying feature representations.
+**Objective**
+
+The Euclidean Distance Score is used to evaluate how close a generated summary is to a reference summary (or the original text) in terms of their feature representations. By converting texts into vector representations (e.g., using word embeddings or TF-IDF vectors), the Euclidean distance measures the "straight-line" distance between these vectors in multi-dimensional space. A smaller distance indicates that the two texts are more similar, suggesting Contextual Synchrony. Conversely, a larger distance implies they are less similar, indicating Contextual Divergence.
+
+**Required Parameters**
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- "Contextual Synchrony": The generated summary is close to the original text in terms of content and context.
+- "Contextual Divergence": The summary diverges significantly from the original text, possibly missing key information or introducing irrelevant content.
+
+**Usage**
 
 ```python
 metrics_list = ["EUCLIDEAN_DISTANCE_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "A groundbreaking study has revealed that a Mediterranean diet rich in fruits, vegetables, and healthy fats "
+        "can significantly reduce the risk of heart disease. Researchers followed over 25,000 participants for a decade "
+        "and found that those who adhered closely to the diet had a 30% lower risk compared to those who did not. "
+        "The findings support dietary guidelines emphasizing whole foods and balanced nutrition for cardiovascular health."
+    ),
+    "llm_output": (
+        "Following a Mediterranean diet rich in fruits, vegetables, and healthy fats reduces heart disease risk by 30%, "
+        "according to a decade-long study of 25,000 people."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Fuzzy Score</summary></br>
-<b>Fuzzy Score</b> measures the similarity between two pieces of text (the original text and the generated summary) based on approximate matching rather than exact matching. It is useful for capturing partial matches or similarities when exact word or phrase matching might not be suitable, especially when the generated summary paraphrases or uses synonyms of the original text.</br>
 
-<h3>Key Aspects of Fuzzy Score in Summarization:</h3>
+**Objective**
 
-* Partial Matching: Unlike traditional exact matching metrics (like BLEU or ROUGE), fuzzy matching considers how similar two texts are even if the words or phrases are not identical but are close in meaning or structure.
-* Levenshtein Distance: Often, fuzzy scores are computed using string-matching algorithms like Levenshtein distance, which calculates the minimum number of single-character edits (insertions, deletions, or substitutions) needed to turn one string into another.
-* Similarity Score: The fuzzy score is typically a percentage between 0 and 100, where:
-100 means the two texts are identical.
-A lower score indicates less similarity.
-A higher score indicates more similarity, even if the exact words differ.
+The Fuzzy Score measures the similarity between two pieces of text—the original text and the generated summary—based on approximate matching rather than exact matching. It captures partial matches or similarities when exact word or phrase matching might not be suitable, especially when the generated summary paraphrases or uses synonyms of the original text. This metric is useful for evaluating summaries that may use different wording but convey the same meaning.
+
+**Required Parameters**
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+
+**Interpretation**
+
+- "Well-Aligned Summarization": Indicates that the generated summary is well-aligned with the original text, even if it uses different words or phrases.
+- "Misaligned Summarization": Suggests that the summary is misaligned with the original text, possibly missing key information or introducing inaccuracies.
+
+**Usage**
 
 ```python
 metrics_list = ["FUZZY_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "In an effort to combat climate change, the government has announced a new initiative to invest in renewable energy sources. "
+        "The plan includes substantial funding for solar, wind, and hydroelectric power projects over the next decade. "
+        "Officials believe that this move will not only reduce carbon emissions but also create thousands of new jobs in the green energy sector."
+    ),
+    "llm_output": (
+        "The government unveils a plan to invest heavily in renewable energy, focusing on solar, wind, and hydroelectric projects to address climate change and boost employment in the green sector."
+    )
+}]
 ```
 </details>
 <details>
 <summary>Meteor Score</summary></br>
 
-METEOR score (Metric for Evaluation of Translation with Explicit ORdering) is a metric used to evaluate the quality of generated summaries by comparing them to reference summaries. Originally designed for machine translation, METEOR has been adapted for summarization tasks as well.</br>
-<h3>Key Features of Meteor Score</h3>:
+**Objective**
 
-* Precision and Recall: METEOR combines precision (the fraction of relevant words in the generated summary) and recall (the fraction of relevant words from the reference summaries that are captured in the generated summary).
+The METEOR score (Metric for Evaluation of Translation with Explicit ORdering) is a metric used to evaluate the quality of generated summaries by comparing them to reference summaries. Originally designed for machine translation, METEOR has been adapted for summarization tasks as well. It considers matches between the generated summary and the reference summary at the level of unigrams (individual words), accounting for synonyms and stemming, and incorporates penalties for word order differences. This makes METEOR effective in capturing both exact matches and variations in wording.
 
-* Synonymy and Stemming: It accounts for variations in wording by including synonyms, stemming (reducing words to their root forms), and paraphrases.
+**Required Parameters**
 
-* Chunk Matching: METEOR evaluates the matches between the generated and reference texts in terms of phrases or chunks, rather than individual words, which helps capture meaning even when exact word matches are not present.
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+- `reference_summary`: The reference summary to compare against.
 
-* Penalty for Fragmentation: It includes penalties for matches that are scattered throughout the summary, encouraging more coherent and consistent outputs.
+**Interpretation**
+
+- "Semantically Accurate": Indicates that the generated summary closely aligns with the reference summary in terms of content and meaning, including synonym matches and appropriate word order.
+- "Semantically Drifting": Suggests that the generated summary diverges from the reference summary, potentially missing key information or containing inaccuracies.
+
+**Usage**
 
 ```python
 metrics_list = ["METEOR_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "Scientists have developed a new AI algorithm that can predict volcanic eruptions "
+        "by analyzing seismic activity patterns. The algorithm was trained on data from various volcanoes "
+        "around the world and has shown high accuracy in forecasting eruptions weeks in advance. "
+        "This breakthrough could provide critical time for evacuations and disaster preparedness."
+    ),
+    "llm_output": (
+        "A new AI algorithm predicts volcanic eruptions weeks ahead by analyzing seismic patterns, "
+        "allowing for timely evacuations and disaster planning."
+    ),
+    # Reference summary for METEOR score calculation
+    "reference_summary": (
+        "Researchers created an AI model capable of forecasting volcanic eruptions weeks before they occur "
+        "by studying seismic activity, potentially improving evacuation strategies."
+    )
+}]
 ```
 </details>
+
 <details>
+
 <summary>Rouge Score</summary>
-ROUGE score (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics used to evaluate the quality of generated summaries by comparing them to one or more reference summaries. ROUGE focuses primarily on the overlap of content between the generated and reference summaries. We use `Rouge-L` for our implementation.</br>
-<h3>Key variants of Rouge:</h3>
 
-* ROUGE-N: Measures the overlap of n-grams (sequences of n words) between the generated and reference summaries. Commonly used variants include ROUGE-1 (unigrams), ROUGE-2 (bigrams), and ROUGE-3 (trigrams).
+**Objective**
 
-* ROUGE-L: Measures the longest common subsequence (LCS) between the generated and reference summaries. It evaluates the fluency and coherence by considering the order of words.
+The ROUGE score (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics used to evaluate the quality of generated summaries by comparing them to one or more reference summaries. ROUGE focuses primarily on the overlap of content between the generated and reference summaries. ROUGE-L, specifically, measures the longest common subsequence (LCS) between the generated summary and the reference summary, capturing sentence-level structure similarity and allowing for in-sequence matches that are not necessarily contiguous.
 
-* ROUGE-W: A variant of ROUGE-L that weights the LCS based on its length, providing a more nuanced evaluation of longer matches.
+**Required Parameters**
+- `llm_input_context`: The original text or document to be summarized.
+- `llm_output`: The generated summary to be evaluated.
+- `reference_summary`: The reference summary to compare against.
 
-* ROUGE-S: Measures the overlap of skip-bigrams, which are pairs of words in the same order but not necessarily adjacent.
+**Interpretation**
+
+- "High Overlap": Indicates a high overlap between the generated summary and the reference summary in terms of shared sequences of words, suggesting that the generated summary captures the important content of the reference summary.
+- "Low Overlap": Suggests a low overlap, meaning the generated summary may have missed key information or is significantly different from the reference summary.
+
+**Usage**
 
 ```python
 metrics_list = ["ROUGE_SCORE"]
-input_data= [{
-    "llm_input_query": "string",
-    "llm_input_context": "A group of researchers have developed a plant-based alternative to plastic packaging that is both biodegradable and sustainable. This innovation could help reduce the environmental impact of single-use plastics.",
-    "llm_output": "Researchers create biodegradable, plant-based alternative to plastic packaging, aiming to mitigate the environmental effects of single-use plastics."
-  }]
+
+input_data = [{
+    "llm_input_context": (
+        "A recent report by the World Health Organization highlights the alarming rise in antibiotic-resistant bacteria. "
+        "Overuse and misuse of antibiotics in medicine and agriculture have accelerated the development of 'superbugs' that are immune to existing treatments. "
+        "The report calls for global action to promote responsible use of antibiotics and to invest in research for new antimicrobial therapies."
+    ),
+    "llm_output": (
+        "The WHO reports a surge in antibiotic-resistant bacteria due to overuse in medicine and farming, urging global efforts for responsible antibiotic use and new treatments."
+    ),
+    # Reference summary for ROUGE-L score calculation
+    "reference_summary": (
+        "A WHO report warns of increasing antibiotic-resistant bacteria caused by overuse and misuse in healthcare and agriculture, advocating for responsible antibiotic practices and investment in new antimicrobial research."
+    )
+}]
 ```
 </details>
 
