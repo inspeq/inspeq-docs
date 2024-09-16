@@ -364,8 +364,8 @@ Evaluates how semantically similar a generated summary is to a reference summary
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -378,13 +378,13 @@ Evaluates how semantically similar a generated summary is to a reference summary
 metrics_list = ["BERT_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "In a groundbreaking discovery, astronomers have detected signs of water vapor "
         "in the atmosphere of a planet located in the habitable zone of its star. "
         "This exoplanet, named K2-18b, is eight times the mass of Earth and lies about 110 light-years away. "
         "The presence of water vapor suggests that the planet could potentially support life."
     ),
-    "llm_output": (
+    "response": (
         "Astronomers have found water vapor on exoplanet K2-18b, which resides in its star's habitable zone, "
         "raising the possibility that it could support life."
     )
@@ -401,8 +401,8 @@ The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate th
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 - `reference_summary` (optional but recommended): A reference summary to compare against.
 
 **Interpretation**
@@ -414,12 +414,12 @@ The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate th
 metrics_list = ["BLEU_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "Scientists have discovered a new species of bird in the remote mountains of South America. "
         "This bird, characterized by its vibrant plumage and unique song, adds to the biodiversity of the region. "
         "Conservationists are urging for the area to be protected to preserve its habitat."
     ),
-    "llm_output": (
+    "response": (
         "A new bird species with vibrant feathers and a unique song has been found in South America's remote mountains. "
         "Scientists emphasize the need to protect its habitat."
     ),
@@ -440,8 +440,8 @@ The Compression Score in summarization tasks measures the ratio of the length of
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -453,14 +453,14 @@ The Compression Score in summarization tasks measures the ratio of the length of
 metrics_list = ["COMPRESSION_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "In a significant breakthrough, a team of international scientists has developed a new vaccine "
         "that provides immunity against multiple strains of influenza. The vaccine utilizes novel mRNA technology, "
         "allowing for rapid adaptation to emerging flu variants. Clinical trials have shown a 95% effectiveness rate, "
         "marking a substantial improvement over traditional flu vaccines. Health organizations worldwide are "
         "optimistic about the potential to reduce annual flu-related illnesses and deaths."
     ),
-    "llm_output": (
+    "response": (
         "Scientists develop a new mRNA vaccine offering 95% effectiveness against multiple influenza strains, "
         "promising to reduce global flu cases significantly."
     )
@@ -476,8 +476,8 @@ The Cosine Similarity Score is used to measure the similarity between the origin
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -488,13 +488,13 @@ The Cosine Similarity Score is used to measure the similarity between the origin
 metrics_list = ["COSINE_SIMILARITY_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "A recent study published in the Journal of Environmental Science has revealed that planting urban gardens "
         "can significantly reduce air pollution in cities. The researchers found that certain plant species are "
         "particularly effective at absorbing pollutants like nitrogen dioxide and particulate matter. "
         "These findings suggest that urban greenery could play a crucial role in improving air quality and public health."
     ),
-    "llm_output": (
+    "response": (
         "Urban gardens with specific plants can significantly reduce city air pollution by absorbing harmful pollutants, "
         "according to a new environmental study."
     )
@@ -510,8 +510,8 @@ The Density Score is a metric that measures how much of the generated summary re
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -524,12 +524,12 @@ The Density Score is a metric that measures how much of the generated summary re
 metrics_list = ["DENSITY_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "A team of engineers has developed a new battery technology that can charge electric vehicles in just 10 minutes. "
         "The breakthrough involves a novel electrode design that allows for faster ion movement, significantly reducing charging times. "
         "This innovation could accelerate the adoption of electric vehicles by addressing one of the main concerns of consumers."
     ),
-    "llm_output": (
+    "response": (
         "Engineers develop new battery technology enabling electric vehicles to charge in 10 minutes, potentially boosting EV adoption."
     )
 }]
@@ -543,8 +543,8 @@ input_data = [{
 The Euclidean Distance Score is used to evaluate how close a generated summary is to a reference summary (or the original text) in terms of their feature representations. By converting texts into vector representations (e.g., using word embeddings or TF-IDF vectors), the Euclidean distance measures the "straight-line" distance between these vectors in multi-dimensional space. A smaller distance indicates that the two texts are more similar, suggesting Contextual Synchrony. Conversely, a larger distance implies they are less similar, indicating Contextual Divergence.
 
 **Required Parameters**
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -557,13 +557,13 @@ The Euclidean Distance Score is used to evaluate how close a generated summary i
 metrics_list = ["EUCLIDEAN_DISTANCE_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "A groundbreaking study has revealed that a Mediterranean diet rich in fruits, vegetables, and healthy fats "
         "can significantly reduce the risk of heart disease. Researchers followed over 25,000 participants for a decade "
         "and found that those who adhered closely to the diet had a 30% lower risk compared to those who did not. "
         "The findings support dietary guidelines emphasizing whole foods and balanced nutrition for cardiovascular health."
     ),
-    "llm_output": (
+    "response": (
         "Following a Mediterranean diet rich in fruits, vegetables, and healthy fats reduces heart disease risk by 30%, "
         "according to a decade-long study of 25,000 people."
     )
@@ -578,8 +578,8 @@ input_data = [{
 The Fuzzy Score measures the similarity between two pieces of text—the original text and the generated summary—based on approximate matching rather than exact matching. It captures partial matches or similarities when exact word or phrase matching might not be suitable, especially when the generated summary paraphrases or uses synonyms of the original text. This metric is useful for evaluating summaries that may use different wording but convey the same meaning.
 
 **Required Parameters**
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
@@ -592,12 +592,12 @@ The Fuzzy Score measures the similarity between two pieces of text—the origina
 metrics_list = ["FUZZY_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "In an effort to combat climate change, the government has announced a new initiative to invest in renewable energy sources. "
         "The plan includes substantial funding for solar, wind, and hydroelectric power projects over the next decade. "
         "Officials believe that this move will not only reduce carbon emissions but also create thousands of new jobs in the green energy sector."
     ),
-    "llm_output": (
+    "response": (
         "The government unveils a plan to invest heavily in renewable energy, focusing on solar, wind, and hydroelectric projects to address climate change and boost employment in the green sector."
     )
 }]
@@ -612,8 +612,8 @@ The METEOR score (Metric for Evaluation of Translation with Explicit ORdering) i
 
 **Required Parameters**
 
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 - `reference_summary`: The reference summary to compare against.
 
 **Interpretation**
@@ -627,13 +627,13 @@ The METEOR score (Metric for Evaluation of Translation with Explicit ORdering) i
 metrics_list = ["METEOR_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "Scientists have developed a new AI algorithm that can predict volcanic eruptions "
         "by analyzing seismic activity patterns. The algorithm was trained on data from various volcanoes "
         "around the world and has shown high accuracy in forecasting eruptions weeks in advance. "
         "This breakthrough could provide critical time for evacuations and disaster preparedness."
     ),
-    "llm_output": (
+    "response": (
         "A new AI algorithm predicts volcanic eruptions weeks ahead by analyzing seismic patterns, "
         "allowing for timely evacuations and disaster planning."
     ),
@@ -655,8 +655,8 @@ input_data = [{
 The ROUGE score (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics used to evaluate the quality of generated summaries by comparing them to one or more reference summaries. ROUGE focuses primarily on the overlap of content between the generated and reference summaries. ROUGE-L, specifically, measures the longest common subsequence (LCS) between the generated summary and the reference summary, capturing sentence-level structure similarity and allowing for in-sequence matches that are not necessarily contiguous.
 
 **Required Parameters**
-- `llm_input_context`: The original text or document to be summarized.
-- `llm_output`: The generated summary to be evaluated.
+- `context`: The original text or document to be summarized.
+- `response`: The generated summary to be evaluated.
 - `reference_summary`: The reference summary to compare against.
 
 **Interpretation**
@@ -670,12 +670,12 @@ The ROUGE score (Recall-Oriented Understudy for Gisting Evaluation) is a set of 
 metrics_list = ["ROUGE_SCORE"]
 
 input_data = [{
-    "llm_input_context": (
+    "context": (
         "A recent report by the World Health Organization highlights the alarming rise in antibiotic-resistant bacteria. "
         "Overuse and misuse of antibiotics in medicine and agriculture have accelerated the development of 'superbugs' that are immune to existing treatments. "
         "The report calls for global action to promote responsible use of antibiotics and to invest in research for new antimicrobial therapies."
     ),
-    "llm_output": (
+    "response": (
         "The WHO reports a surge in antibiotic-resistant bacteria due to overuse in medicine and farming, urging global efforts for responsible antibiotic use and new treatments."
     ),
     # Reference summary for ROUGE-L score calculation
