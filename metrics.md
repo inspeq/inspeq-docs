@@ -493,7 +493,7 @@ input_data = [{
 </br>
 
 ### Metrics for Summarization
-
+<!-- 
 <details>
 <summary>BERT Score</summary></br>
 
@@ -529,7 +529,7 @@ input_data = [{
     )
 }]
 ```
-</details>
+</details> -->
 
 <details>
 <summary>Bleu Score</summary></br>
