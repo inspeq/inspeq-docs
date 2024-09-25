@@ -795,10 +795,6 @@ except Exception as e:
     print(f"An error occurred: {str(e)}")
 
 ```
-
-Replace __METRIC_NAME__ with the specific metric you want to evaluate. 
-
-## Below are examples for each metric:
 <!-- 
 __DATA_LEAKAGE__
 
@@ -887,6 +883,3 @@ input_data = [{
 }]
 ``` -->
 
-__Note on Configuration__
-
-The SDK uses default configurations for each metric. You can override these defaults by providing your own config_input parameter when calling evaluate_llm_task.
