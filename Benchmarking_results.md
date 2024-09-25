@@ -35,7 +35,7 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         </tr>
         <tr>
             <td>2</td>
-            <td>Factual Consistency wrt Context</td>
+            <td>Factual Consistency w.r.t Context</td>
             <td>0.79</td>
         </tr>
         <tr>
@@ -60,7 +60,7 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         </tr>
         <tr>
             <td>7</td>
-            <td>Banned Topics</td>
+            <td>Banned Topics*</td>
             <td>0.94</td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         </tr>
         <tr>
             <td>9</td>
-            <td>Code Detection</td>
+            <td>Code Detection*</td>
             <td>0.90</td>
         </tr>
         <tr>
@@ -90,13 +90,15 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         </tr>
         <tr>
             <td>13</td>
-            <td>NSFW detection</td>
+            <td>NSFW detection*</td>
             <td>0.95</td>
         </tr>
         <tr>
             <td>14</td>
-            <td>Sensitive data leakage detection (beyond PII)</td>
+            <td>Sensitive data leakage detection (beyond PII)*</td>
             <td>0.70</td>
         </tr>
     </tbody>
 </table>
+</br>
+*  Coming Soon

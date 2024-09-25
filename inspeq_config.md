@@ -23,7 +23,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "answer_fluency_config": {
+        *"answer_fluency_config": {
           "threshold": 0.5,
           "custom_labels": [
             "PASS",
@@ -63,7 +63,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "word_count_limit_config": {
+        *"word_count_limit_config": {
           "threshold": 0.5,
           "custom_labels": [
             "Failed",
@@ -74,7 +74,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "do_not_use_keywords_config": {
+        *"do_not_use_keywords_config": {
           "threshold": 0.5,
           "custom_labels": [
             "Failed",
@@ -166,7 +166,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "model_refusal_config": {
+        *"model_refusal_config": {
           "threshold": 0.5,
           "custom_labels": [
             "Detected",
@@ -246,7 +246,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "density_score_config": {
+        *"density_score_config": {
           "threshold": 0.2,
           "custom_labels": [
             "Verbose Summarization",
@@ -301,7 +301,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "bert_score_config": {
+        *"bert_score_config": {
           "threshold": 0.8,
           "custom_labels": [
             "Linguistically Congruent",
@@ -323,7 +323,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "euclidean_distance_score_config": {
+        *"euclidean_distance_score_config": {
           "threshold": 0.5,
           "custom_labels": [
             "Detected",
@@ -352,7 +352,7 @@ We use this default configuration to tag the results of metrics evaluations. Whi
             1
           ]
         },
-        "get_sentence_embedding_score_config": {
+        *"get_sentence_embedding_score_config": {
           "threshold": 0.5,
           "custom_labels": [
             "Detected",

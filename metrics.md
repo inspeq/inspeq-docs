@@ -3,6 +3,7 @@
 This document provides an overview of the metrics available in the Inspeq AI SDK, along with their definitions and usage examples.
 
 # Available Metrics
+### Evaluation for Generation Use Case:
 <details><summary>RESPONSE_TONE</summary>
 
 **Objective**
@@ -492,7 +493,7 @@ input_data = [{
 
 </br>
 
-### Metrics for Summarization
+### Evaluation for Summarization Use Case
 <!-- 
 <details>
 <summary>BERT Score</summary></br>
@@ -532,7 +533,7 @@ input_data = [{
 </details> -->
 
 <details>
-<summary>Bleu Score</summary></br>
+<summary>BLEU_SCORE</summary></br>
 
 **Objective**
 
@@ -571,7 +572,7 @@ input_data = [{
 ```
 </details>
 <details>
-<summary>Compression Score</summary></br>
+<summary>COMPRESSION_SCORE</summary></br>
 
 **Objective**
 
@@ -607,7 +608,7 @@ input_data = [{
 ```
 </details>
 <details>
-<summary>Cosine Similarity Score</summary></br>
+<summary>COSINE_SIMILARITY_SCORE</summary></br>
 
 **Objective**
 
@@ -641,7 +642,7 @@ input_data = [{
 ```
 </details>
 <details>
-<summary>Fuzzy Score</summary></br>
+<summary>FUZZY_SCORE</summary></br>
 
 **Objective**
 
@@ -674,7 +675,7 @@ input_data = [{
 ```
 </details>
 <details>
-<summary>Meteor Score</summary></br>
+<summary>METEOR_SCORE</summary></br>
 
 **Objective**
 
@@ -718,7 +719,7 @@ input_data = [{
 
 <details>
 
-<summary>Rouge Score</summary>
+<summary>ROUGE_SCORE</summary>
 
 **Objective**
 

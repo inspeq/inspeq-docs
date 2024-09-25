@@ -67,8 +67,9 @@ except Exception as e:
     
 ```
 
-### Available Metrics 
-```
+<!-- ### Available Metrics  -->
+
+<!-- ```
 metrics_list = [
     "RESPONSE_TONE",
     "ANSWER_RELEVANCE",
@@ -84,5 +85,5 @@ metrics_list = [
 ]
 
 ```
-To use these metrics, simply pass the respective metrics name with your metrics_list.
+To use these metrics, simply pass the respective metrics name with your metrics_list. -->
 
