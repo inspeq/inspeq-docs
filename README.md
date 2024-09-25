@@ -48,6 +48,17 @@ Inspeq AI's SDK includes these powerful metrics to evaluate and monitor various 
 * Creativity
 * Narrative Continuity
 * Grammatical Correctness
+* Prompt Injection
+* Data Leakage
+* Insecure Output
+* Invisible text
+* Toxicity
+* Bleu score
+* Compression score
+* Cosine Similarity Score
+* Fuzzy Score
+* Meteor Score
+* Rouge Score
 <!-- * Data Leakage -->
 <!-- * Do Not Use Keywords -->
 <!-- * Model Refusal -->
