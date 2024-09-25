@@ -31,72 +31,72 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         <tr>
             <td>1</td>
             <td>Answer Relevancy</td>
-            <td>91%</td>
+            <td>0.91</td>
         </tr>
         <tr>
             <td>2</td>
             <td>Factual Consistency wrt Context</td>
-            <td>79%</td>
+            <td>0.79</td>
         </tr>
         <tr>
             <td>3</td>
             <td>Conceptual Similarity</td>
-            <td>71%</td>
+            <td>0.71</td>
         </tr>
         <tr>
             <td>4</td>
             <td>Response Tonality</td>
-            <td>62%</td>
+            <td>0.62</td>
         </tr>
         <tr>
             <td>5</td>
             <td>Bias detection</td>
-            <td>82%</td>
+            <td>0.82</td>
         </tr>
         <tr>
             <td>6</td>
             <td>Toxicity Detection</td>
-            <td>83%</td>
+            <td>0.83</td>
         </tr>
         <tr>
             <td>7</td>
             <td>Banned Topics</td>
-            <td>94%</td>
+            <td>0.94</td>
         </tr>
         <tr>
             <td>8</td>
             <td>Invisible Text</td>
-            <td>100%</td>
+            <td>1</td>
         </tr>
         <tr>
             <td>9</td>
             <td>Code Detection</td>
-            <td>90%</td>
+            <td>0.90</td>
         </tr>
         <tr>
             <td>10</td>
             <td>Data Leakage (PII)</td>
-            <td>92%</td>
+            <td>0.92</td>
         </tr>
         <tr>
             <td>11</td>
             <td>Insecure Output</td>
-            <td>92%</td>
+            <td>0.92</td>
         </tr>
         <tr>
             <td>12</td>
             <td>Prompt Injection Detection</td>
-            <td>93%</td>
+            <td>0.93</td>
         </tr>
         <tr>
             <td>13</td>
             <td>NSFW detection</td>
-            <td>95%</td>
+            <td>0.95</td>
         </tr>
         <tr>
             <td>14</td>
             <td>Sensitive data leakage detection (beyond PII)</td>
-            <td>70%</td>
+            <td>0.70</td>
         </tr>
     </tbody>
 </table>
