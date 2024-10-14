@@ -36,17 +36,17 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         <tr>
             <td>2</td>
             <td>Factual Consistency w.r.t Context</td>
-            <td>0.79</td>
+            <td>0.94</td>
         </tr>
         <tr>
             <td>3</td>
             <td>Conceptual Similarity</td>
-            <td>0.71</td>
+            <td>0.93</td>
         </tr>
         <tr>
             <td>4</td>
             <td>Response Tonality</td>
-            <td>0.62</td>
+            <td>0.75</td>
         </tr>
         <tr>
             <td>5</td>
@@ -76,7 +76,7 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         <tr>
             <td>10</td>
             <td>Data Leakage (PII)</td>
-            <td>0.92</td>
+            <td>0.96</td>
         </tr>
         <tr>
             <td>11</td>
@@ -86,7 +86,7 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         <tr>
             <td>12</td>
             <td>Prompt Injection Detection</td>
-            <td>0.93</td>
+            <td>0.94</td>
         </tr>
         <tr>
             <td>13</td>
