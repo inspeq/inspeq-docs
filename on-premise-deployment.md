@@ -10,10 +10,10 @@ This guide provides detailed instructions for deploying Inspeq AI platform in yo
 - VPC with appropriate networking configuration
 - Basic knowledge of AWS EC2 service
 
-### Technical Requirements
+<!-- ### Technical Requirements
 - Understanding of network security concepts
 - Familiarity with Docker and container management
-- Access to AWS EC2 console
+- Access to AWS EC2 console -->
 
 ## Deployment Process
 
@@ -28,7 +28,7 @@ Before requesting access to the Inspeq AMI, please prepare:
 - Technical team contact information
 
 #### Requesting Access
-1. Email sales@inspeq.ai with subject "AMI Access Request"
+1. Email partners@inspeq.ai with subject "AMI Access Request"
 2. Include:
    - AWS Account ID
    - Preferred region
@@ -59,7 +59,7 @@ Create a new security group with the following configurations:
 | HTTPS | TCP | 443 | 0.0.0.0/0 | Secure web service |
 | Custom TCP | TCP | 9000 | 0.0.0.0/0 | Backend API access |
 
-> **Security Note**: Consider restricting port 9000 access based on your security requirements. For enhanced security, use HTTPS (443) with path-based routing.
+> **Security Note**: Consider restricting port 9000 access based on your security requirements. For enhanced security, use HTTPS (443), we can help you with that.
 
 ##### Outbound Rules
 | Type | Protocol | Port Range | Destination | Description |
@@ -95,14 +95,23 @@ Create a new security group with the following configurations:
 #### Recommended Specifications
 
 1. Give the instance a name
-2. Create a key pair or use an existing key pair
-3. Select the security group created in the previous step
-4. Configure storage 
-5. Click on "Launch Instance"   
+2. Select inspeq recommended instance type
+3. Create a key pair or use an existing key pair
+4. Select the security group created in the previous step
+5. Configure storage : minimum 150GB
+6. Click on "Launch Instance"   
+
+
+
+
+##### Select instance type
+
+![Select instance type ](/images/instance-type.png)
+
 
 ##### Key pair creation
 
-![Key pair creationi ](/images/key-pair.png)
+![Key pair creation ](/images/key-pair.png)
 
 ##### Security group selection
 
@@ -119,7 +128,7 @@ Once you click on "Launch Instance" you will be redirected to the instance detai
 ![Instance details ](/images/instance-details.png)
 
 
-##### Get instance IP/URL
+##### Get instance's public IP/URL
 
 ![Instance details ](/images/instance-url.png)
 
@@ -211,5 +220,5 @@ Now you can use the setup to evaluate your LLM tasks similar to the quickstart g
 
 ### Contact Information
 - Technical Support: support@inspeq.ai
-- Sales Inquiries: sales@inspeq.ai
+- Sales Inquiries: partners@inspeq.ai
 - Emergency Support: [Provided in welcome email]
