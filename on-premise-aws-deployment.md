@@ -1,4 +1,4 @@
-# Inspeq On-Premise  Deployment Guide
+# Inspeq On-Premise  Deployment Guide for AWS
 
 This guide provides detailed instructions for deploying Inspeq AI platform in your AWS environment using our custom AMI. This deployment method ensures data privacy, security, and compliance with your organization's requirements.
 
@@ -138,10 +138,10 @@ Once you click on "Launch Instance" you will be redirected to the instance detai
 
 #### Accessing the Frontend services
 
-1. Copy the instance URL and paste it in your browser, You will be directed to the Signup/login page
-2. Signup with the credentials
-3. Login with the same credentials provided 
-4. You will be redirected to the dashboard
+1. Copy your Inspeq On-Prem instance URL and paste it into your web browser. This will take you to the Sign Up/Login page.
+2. Sign up using your preferred email address and a secure password.
+3. Once your account is created, log in with the same credentials.
+4. After logging in, you will be automatically redirected to your personal dashboard.
 
 
 ##### Login page
@@ -171,9 +171,10 @@ Once you click on "Launch Instance" you will be redirected to the instance detai
 
 #### Integrating with the Inspeq SDK
 
-1. Follow the quickstart guide to integrate with the Inspeq SDK [Quickstart](quickstart.md)
-2. Just set INSPEQ_API_URL to the instance URL:9000
-3. Pass the same to inspeq_eval call inspeq_api_url
+1. Begin by following the official Inspeq SDK [Quickstart](quickstart.md) guide to familiarize yourself with the SDK’s features and requirements
+2. Configure the INSPEQ_API_URL environment variable to URL:9000
+3. When calling inspeq_eval, ensure you pass the same INSPEQ_API_URL value as the inspeq_api_url parameter so your requests are routed correctly to your On-Prem deployment.
+
 
 ```python
 
@@ -215,8 +216,8 @@ except Exception as e:
 
 Now you can use the setup to evaluate your LLM tasks similar to the quickstart guide for our managed service.
 
+Ready to explore Inspeq AI's On-Prem deployment? Contact us at partners@inspeq.ai to discuss your organization's specific needs and requirements. 
 
-## Support
 
 ### Contact Information
 - Technical Support: support@inspeq.ai

@@ -11,4 +11,6 @@
 * [Default Config](inspeq_config.md)
 
 # Enterprise Deployment
-* [On-Premise Deployment Guide](on-premise-deployment.md)
+* [On-Premise Deployment Overview](on-premise-overview.md)
+* [On-Premise AWS Deployment Guide](on-premise-aws-deployment.md)   
+
