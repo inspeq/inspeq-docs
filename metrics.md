@@ -164,19 +164,16 @@ input_data = [{
 
 **Objective**
 
-Evaluates how well the model generates coherent and logical responses that align with the context of the question.
+Evaluates how well the model generates responses that are internally consistent, logical, and meaningful.
 
 **Required Parameters**
-
-- `context`
 - `response`
 
 **Interpretation**
 
 The metric provides a coherence score between 0 and 1, indicating the logical flow and consistency of the response with the context.
-- "Incoherent" – The response is not logically connected to the context and may contain contradictions or irrelevant information.
-- "Slightly Coherent" – The response has some logical connection to the context but may contain minor inconsistencies or unclear elements.
-- "Coherent" – The response is logically consistent and flows naturally from the context.
+- "Incoherent" – The response is not logically consistent, contains contradictions, or lacks clarity.
+- "Coherent" – The response is logical, well-structured, and clear.
 
 **Usage**
 
@@ -184,10 +181,6 @@ The metric provides a coherence score between 0 and 1, indicating the logical fl
 metrics_list = ["COHERENCE"]
 
 input_data = [{
-    "context": (
-        "After months of preparation, the team was finally ready to launch the new software product. "
-        "They had worked tirelessly to ensure that everything was perfect for the big day."
-    ),
     "response": (
         "The launch event was a huge success. Customers were impressed with the new features, "
         "and the team celebrated their achievement."
