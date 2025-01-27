@@ -98,6 +98,11 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
             <td>Sensitive data leakage detection (beyond PII)*</td>
             <td>0.70</td>
         </tr>
+        <tr>
+            <td>15</td>
+            <td>Coherence</td>
+            <td>0.87</td>
+        </tr>
     </tbody>
 </table>
 </br>
