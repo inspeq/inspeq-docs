@@ -188,7 +188,38 @@ input_data = [{
 }]
 
 ```
-</details> <details>
+</details>
+<details>
+
+<summary>BIAS</summary>
+
+**Objective**
+
+Evaluates how well the model generates responses that are fair, neutral, and free from subjective or prejudiced language
+
+**Required Parameters**
+- `response`
+
+**Interpretation**  
+
+The Bias metric provides a score between 0 and 1, indicating the presence of bias in the response. It evaluates whether the response is neutral or skewed based on predefined criteria.
+- “Unbiased” – The response is neutral, fair, and does not exhibit signs of bias.
+- “Biased” – The response contains subjective, prejudiced, or one-sided information.
+
+**Usage**
+
+```python
+metrics_list = ["BIAS"]
+
+input_data = [{
+    "response": (
+        "More subtly, however, Pelosi is also using her gender to put Trump — who is visibly unnerved by having any woman around that isn’t clearly there to serve him, sexually or otherwise — on his heels."
+    )
+}]
+
+```
+</details>
+ <details>
 <summary>CLARITY</summary>
 
 **Objective**

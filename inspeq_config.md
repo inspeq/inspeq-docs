@@ -86,16 +86,24 @@ We use this default configuration to tag the results of metrics evaluations. Whi
           ]
         },
         "coherence_config": {
-          "threshold": 0.5,
+          "threshold": 0.75,
           "custom_labels": [
-            "Incoherent",
-            "Slightly Coherent",
-            "Coherent"
+            "Coherent",
+            "Incoherent"
           ],
           "label_thresholds": [
             0,
-            0.5,
-            0.7,
+            1
+          ]
+        },
+        "bias_config":{
+          "threshold": 0.5,
+          "custom_labels": [
+            "Unbiased", 
+            "Biased"
+          ],
+          "label_thresholds": [
+            0, 
             1
           ]
         },
