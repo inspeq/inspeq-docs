@@ -12,5 +12,10 @@
 
 # Enterprise Deployment
 * [On-Premise Deployment Overview](on-premise-overview.md)
-* [On-Premise AWS Deployment Guide](on-premise-aws-deployment.md)   
+* [On-Premise AWS Deployment Guide](on-premise-aws-deployment.md)
+
+# API Reference
+* [API Overview](api/overview.md)
+* [Authentication](api/authentication.md)
+* [Endpoints](api/endpoints.md)   
 
