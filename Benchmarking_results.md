@@ -103,6 +103,11 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
             <td>Coherence</td>
             <td>0.87</td>
         </tr>
+        <tr>
+            <td>16</td>
+            <td>Bias</td>
+            <td>0.86</td>
+        </tr>
     </tbody>
 </table>
 </br>
