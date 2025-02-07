@@ -1,10 +1,13 @@
 # Inspeq Metrics
 
-This document provides an overview of the metrics available in the Inspeq AI SDK, along with their definitions and usage examples.
+This document provides an overview of the metrics available in the Inspeq AI SDK, along with their definitions, context length limits, and usage examples.
+
+### Understanding Context Length and Tokenization
+Context length is an important consideration for optimal usage. While the stated token limit doesn't directly correspond to the exact number of words due to subword tokenization, a general guideline is to estimate that the maximum word count will be around 75-80% of the total token limit. That means for a Context length of 512 tokens, one can evaluate the generated text upto length 380-400 words.
 
 # Available Metrics
 ### Evaluation for Generation Use Case:
-<details><summary>RESPONSE_TONE</summary>
+<details><summary>RESPONSE_TONE (Context Length: 512 tokens )</summary>
 
 **Objective**
 
@@ -26,13 +29,12 @@ metrics_list = ["RESPONSE_TONE"]
 input_data = [{
     "response": "Ugh, do I really have to explain this? Fine. Quantum physics is like, tiny particles doing weird stuff."
 }]
-
 ```
 
 </details>
 
 <details>
-<summary>ANSWER_RELEVANCE</summary>
+<summary>ANSWER_RELEVANCE (Context Length: 512 tokens)</summary>
 
 **Objective**
 
@@ -56,12 +58,10 @@ input_data = [{
 }]
 ```
 
-
 </details>
 
 <details>
-
-<summary>FACTUAL_CONSISTENCY</summary>
+<summary>FACTUAL_CONSISTENCY (Context Length: Upto 2K tokens)</summary>
 
 **Objective**
 
@@ -78,7 +78,6 @@ Measures the extent to which the model's response is factually accurate and cons
 - Lower factual consistency score indicates the model is hallucinating and generating information not present in the context documents. 
 - Lower factual consistency score indicates the Knowledge Base has contradicting information regarding the topic referred to in the prompt.
 
-
 **Usage**
 
 ```python
@@ -92,7 +91,7 @@ input_data = [{
 </details>
 
 <details>
-<summary>CONCEPTUAL_SIMILARITY</summary>
+<summary>CONCEPTUAL_SIMILARITY (Context Length: 512 tokens)</summary>
 
 **Objective**
 
@@ -124,9 +123,10 @@ input_data = [{
     )
 }]
 ```
-</details> 
+</details>
+
 <details>
-<summary>READABILITY</summary>
+<summary>READABILITY (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
@@ -158,9 +158,9 @@ input_data = [{
 }]
 ```
 </details>
-<details>
 
-<summary>COHERENCE</summary>
+<details>
+<summary>COHERENCE (Context Length: 4096 tokens)</summary>
 
 **Objective**
 
@@ -186,25 +186,24 @@ input_data = [{
         "and the team celebrated their achievement."
     )
 }]
-
 ```
 </details>
-<details>
 
-<summary>BIAS</summary>
+<details>
+<summary>BIAS (Context Length: 512 tokens)</summary>
 
 **Objective**
 
-Evaluates how well the model generates responses that are fair, neutral, and free from subjective or prejudiced language
+Evaluates how well the model generates responses that are fair, neutral, and free from subjective or prejudiced language.
 
 **Required Parameters**
 - `response`
 
-**Interpretation**  
+**Interpretation**
 
 The Bias metric provides a score between 0 and 1, indicating the presence of bias in the response. It evaluates whether the response is neutral or skewed based on predefined criteria.
-- “Unbiased” – The response is neutral, fair, and does not exhibit signs of bias.
-- “Biased” – The response contains subjective, prejudiced, or one-sided information.
+- "Unbiased" – The response is neutral, fair, and does not exhibit signs of bias.
+- "Biased" – The response contains subjective, prejudiced, or one-sided information.
 
 **Usage**
 
@@ -213,14 +212,14 @@ metrics_list = ["BIAS"]
 
 input_data = [{
     "response": (
-        "More subtly, however, Pelosi is also using her gender to put Trump — who is visibly unnerved by having any woman around that isn’t clearly there to serve him, sexually or otherwise — on his heels."
+        "More subtly, however, Pelosi is also using her gender to put Trump — who is visibly unnerved by having any woman around that isn't clearly there to serve him, sexually or otherwise — on his heels."
     )
 }]
-
 ```
 </details>
- <details>
-<summary>CLARITY</summary>
+
+<details>
+<summary>CLARITY (Context Length: 16 K tokens )</summary>
 
 **Objective**
 
@@ -236,7 +235,6 @@ The metric evaluates the clarity of the response and provides a score between 0 
 - "Somewhat Clear": The response is generally understandable but may have minor issues affecting clarity.
 - "Clear": The response is well-written, concise, and easy to understand.
 
-
 **Usage**
 
 ```python
@@ -250,10 +248,10 @@ input_data = [{
     )
 }]
 ```
-</details> 
+</details>
 
 <details>
-<summary>DIVERSITY</summary>
+<summary>DIVERSITY (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
@@ -280,8 +278,10 @@ input_data = [{
     )
 }]
 ```
-</details> <details>
-<summary>CREATIVITY</summary>
+</details>
+
+<details>
+<summary>CREATIVITY (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
@@ -314,11 +314,9 @@ input_data = [{
 }]
 ```
 </details>
-<!-- * DATA_LEAKAGE -->
-<!-- * DO_NOT_USE_KEYWORDS -->
-<!-- * MODEL_REFUSAL -->
+
 <details>
-<summary>NARRATIVE_CONTINUITY</summary>
+<summary>NARRATIVE_CONTINUITY (Context Length: 16 K tokens)</summary>
 
 **Objective**
 
@@ -333,7 +331,8 @@ The metric evaluates the narrative flow of the response and categorizes it as:
 - "Continuous": The narrative is consistent, with events logically connected and progressing smoothly.
 - "Not Continuous": The narrative has inconsistencies, abrupt changes, or lacks logical progression, leading to a disjointed story.
 
-Usage
+**Usage**
+
 ```python
 metrics_list = ["NARRATIVE_CONTINUITY"]
 
@@ -346,11 +345,9 @@ input_data = [{
 }]
 ```
 </details>
-<!-- * WORD_COUNT_LIMIT -->
-<!-- * INSECURE_OUTPUT -->
-<!-- * ANSWER_FLUENCY -->
+
 <details>
-<summary>GRAMMATICAL_CORRECTNESS</summary></br>
+<summary>GRAMMATICAL_CORRECTNESS (Context Length: 16 K tokens)</summary>
 
 **Objective**
 
@@ -378,8 +375,7 @@ input_data = [{
 </details>
 
 <details>
-
-<summary>PROMPT_INJECTION</summary></br>
+<summary>PROMPT_INJECTION (Context Length: 512 tokens)</summary>
 
 **Objective**
 
@@ -405,12 +401,11 @@ input_data = [{
 ```
 </details>
 
-
 <details>
-
-<summary>DATA_LEAKAGE</summary></br>
+<summary>DATA_LEAKAGE (Context Length: 512 tokens)</summary>
 
 **Objective**
+
 Data Leakage Metric measures the extent to which sensitive or unintended information is exposed during model training or inference. In summarization tasks, this metric assesses how often a model inadvertently incorporates information that it shouldn't have access to (e.g., data from test sets during training) into its outputs. Data leakage can lead to overly optimistic performance results, misrepresenting the model's real-world capabilities.
 
 **Required Parameters**
@@ -419,8 +414,8 @@ Data Leakage Metric measures the extent to which sensitive or unintended informa
 **Interpretation**
 
 The metric detects if the model produces information that should not be available or is outside the model's training scope (e.g., future events or sensitive information):
-- **"Detected"** – The model generates information that reveals sensitive, private, or future data that should not be accessible or known.
-- **"Not Detected"** – The model does not produce any unintended or sensitive information beyond its knowledge base, adhering to the boundaries of its training data.
+- "Detected" – The model generates information that reveals sensitive, private, or future data that should not be accessible or known.
+- "Not Detected" – The model does not produce any unintended or sensitive information beyond its knowledge base, adhering to the boundaries of its training data.
 
 **Usage**
 
@@ -434,21 +429,22 @@ input_data = [{
 </details>
 
 <details>
+<summary>INSECURE_OUTPUT (Context Length: Length Agnostic)</summary>
 
-<summary>INSECURE_OUTPUT</summary></br>
+**Objective**
 
-### **Objective**
 This metric detects whether the response contains insecure or dangerous code patterns that could lead to potential security vulnerabilities.
 
-### **Required Parameters**
+**Required Parameters**
 - `response`
 
-### **Interpretation**
-The metric evaluates the response for potential security risks such as SQL injection, XSS (Cross-Site Scripting), and insecure functions/libraries. The output provides a score between 0 and 1:
-- **Detected** – The prompt contains code patterns that are identified as insecure or dangerous.
-- **Not Detected** – The prompt does not contain any known insecure code patterns.
+**Interpretation**
 
-### **Usage**
+The metric evaluates the response for potential security risks such as SQL injection, XSS (Cross-Site Scripting), and insecure functions/libraries. The output provides a score between 0 and 1:
+- "Detected" – The prompt contains code patterns that are identified as insecure or dangerous.
+- "Not Detected" – The prompt does not contain any known insecure code patterns.
+
+**Usage**
 
 ```python
 metrics_list = ["INSECURE_OUTPUT"]
@@ -459,24 +455,23 @@ input_data = [{
 ```
 </details>
 
-
 <details>
-<summary>INVISIBLE_TEXT</summary></br>
+<summary>INVISIBLE_TEXT (Context Length: Length Agnostic)</summary>
 
-### Objective
+**Objective**
 
 The **Invisible Text** metric evaluates if the input contains invisible or non-printable characters that might be used maliciously to hide information or manipulate the model's behavior. These characters can belong to categories like "Cf" (format), "Cc" (control), "Co" (private use), or "Cn" (unassigned).
 
-### Required Parameters
+**Required Parameters**
 - `prompt`: The text input being evaluated.
 
-### Interpretation
+**Interpretation**
 
 The metric checks for the presence of invisible or non-printable characters in the input. It returns:
 - **Detected** – Invisible characters or non-printable text has been found in the input.
 - **Not Detected** – No invisible characters or hidden text is found in the input.
 
-### Usage
+**Usage**
 
 ```python
 metrics_list = ["INVISIBLE_TEXT"]
@@ -484,27 +479,26 @@ metrics_list = ["INVISIBLE_TEXT"]
 input_data = [{
     "prompt": "This is a regular sentence\u200b."  # Contains a zero-width space
 }]
-
 ```
 </details>
 
 <details>
-<summary>TOXICITY</summary></br>
+<summary>TOXICITY (Context Length: 512 tokens)</summary>
 
-### Objective
+**Objective**
 
 The **Toxicity** metric evaluates the level of harmful or toxic language present in a given text. It assesses various forms of toxicity, including but not limited to insults, threats, and identity attacks, providing insights into the overall safety of the content.
 
-### Required Parameters
+**Required Parameters**
 - `response`: The text generated by the model that is being evaluated for toxicity.
 
-### Interpretation
+**Interpretation**
 
 The metric measures toxicity and returns a score between 0 and 1, where:
 - **Detected** – The output contains language that is deemed toxic, indicating a score above the defined threshold.
 - **Not Detected** – The output is considered non-toxic, indicating a score below the defined threshold.
 
-### Usage
+**Usage**
 
 ```python
 metrics_list = ["TOXICITY"]
@@ -515,56 +509,16 @@ input_data = [{
 ```
 </details>
 
-</br>
-
 ### Evaluation for Summarization Use Case
-<!-- 
+
 <details>
-<summary>BERT Score</summary></br>
+<summary>BLEU_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-Evaluates how semantically similar a generated summary is to a reference summary using BERT's contextual embeddings. Instead of relying on exact word matches, it compares the meaning of words in the summaries, offering a deeper understanding of content similarity. This makes BERTScore particularly useful for summarization tasks, as it captures nuances in meaning rather than just surface-level similarities.
+The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate the quality of text generated by models, such as translations or summaries, by comparing it to one or more reference texts. For summarization, it measures the overlap of words and phrases (n-grams) between the generated summary and the reference summary, focusing on exact matches and word order.
 
 **Required Parameters**
-
-- `context`: The original text or document to be summarized.
-- `response`: The generated summary to be evaluated.
-
-**Interpretation**
-
-- Linguistically Congruent: Indicates that the generated summary is semantically similar to the original text, effectively capturing the main ideas and nuances.
-- Linguistically Incongruent: Suggests that the summary is not semantically aligned with the original text, potentially missing key information or introducing inaccuracies.
-
-**Usage**
-
-```python
-metrics_list = ["BERT_SCORE"]
-
-input_data = [{
-    "context": (
-        "In a groundbreaking discovery, astronomers have detected signs of water vapor "
-        "in the atmosphere of a planet located in the habitable zone of its star. "
-        "This exoplanet, named K2-18b, is eight times the mass of Earth and lies about 110 light-years away. "
-        "The presence of water vapor suggests that the planet could potentially support life."
-    ),
-    "response": (
-        "Astronomers have found water vapor on exoplanet K2-18b, which resides in its star's habitable zone, "
-        "raising the possibility that it could support life."
-    )
-}]
-```
-</details> -->
-
-<details>
-<summary>BLEU_SCORE</summary></br>
-
-**Objective**
-
-The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate the quality of text generated by models, such as translations or summaries, by comparing it to one or more reference texts. For summarization, it measures the overlap of words and phrases (n-grams) between the generated summary and the reference summary, focusing on exact matches and word order. A higher BLEU score indicates a closer match to the reference summary, suggesting that the generated text conforms well to expected content.
-
-**Required Parameters**
-
 - `context`: The original text or document to be summarized.
 - `response`: The generated summary to be evaluated.
 - `reference_summary` (optional but recommended): A reference summary to compare against.
@@ -574,6 +528,7 @@ The BLEU score (Bilingual Evaluation Understudy) is a metric used to evaluate th
 - "Highly Conforming": Indicates that the generated summary closely matches the reference summary in terms of word choice and order.
 - "Poorly Conforming": Suggests that the generated summary has little overlap with the reference summary, potentially missing key information or differing significantly in wording.
 
+**Usage**
 ```python
 metrics_list = ["BLEU_SCORE"]
 
@@ -587,7 +542,6 @@ input_data = [{
         "A new bird species with vibrant feathers and a unique song has been found in South America's remote mountains. "
         "Scientists emphasize the need to protect its habitat."
     ),
-    # Reference summary for BLEU score calculation
     "reference_summary": (
         "Researchers discovered a vibrant new bird species in South American mountains. "
         "They call for habitat conservation to protect this unique bird."
@@ -595,15 +549,15 @@ input_data = [{
 }]
 ```
 </details>
+
 <details>
-<summary>COMPRESSION_SCORE</summary></br>
+<summary>COMPRESSION_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-The Compression Score in summarization tasks measures the ratio of the length of the generated summary to the length of the original text. It quantifies how much the text has been condensed. A higher Compression Score indicates a more concise summary (greater compression), while a lower Compression Score suggests the summary is closer in length to the original text (less compression).
+The Compression Score in summarization tasks measures the ratio of the length of the generated summary to the length of the original text. It quantifies how much the text has been condensed.
 
 **Required Parameters**
-
 - `context`: The original text or document to be summarized.
 - `response`: The generated summary to be evaluated.
 
@@ -631,23 +585,24 @@ input_data = [{
 }]
 ```
 </details>
+
 <details>
-<summary>COSINE_SIMILARITY_SCORE</summary></br>
+<summary>COSINE_SIMILARITY_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-The Cosine Similarity Score is used to measure the similarity between the original text and the generated summary. It treats both the original text and the summary as vectors in a multi-dimensional space, where each dimension represents a word or token. The cosine similarity metric computes the cosine of the angle between these two vectors, providing a value between -1 and 1. A value closer to 1 indicates high similarity (Contextual Synchrony), while a value closer to 0 or negative values suggest low similarity (Contextual Divergence).
+The Cosine Similarity Score measures the similarity between the original text and the generated summary by treating them as vectors in a multi-dimensional space.
 
 **Required Parameters**
-
 - `context`: The original text or document to be summarized.
 - `response`: The generated summary to be evaluated.
 
 **Interpretation**
 
-- "Contextual Synchrony": Indicates that the summary is highly similar to the original text in terms of content and context.
-- "Contextual Divergence": Suggests that the summary diverges significantly from the original text, possibly omitting key information or introducing irrelevant content.
+- "Contextual Synchrony": Indicates high similarity between the summary and original text.
+- "Contextual Divergence": Suggests significant divergence from the original text.
 
+**Usage**
 ```python
 metrics_list = ["COSINE_SIMILARITY_SCORE"]
 
@@ -665,12 +620,13 @@ input_data = [{
 }]
 ```
 </details>
+
 <details>
-<summary>FUZZY_SCORE</summary></br>
+<summary>FUZZY_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-The Fuzzy Score measures the similarity between two pieces of text—the original text and the generated summary—based on approximate matching rather than exact matching. It captures partial matches or similarities when exact word or phrase matching might not be suitable, especially when the generated summary paraphrases or uses synonyms of the original text. This metric is useful for evaluating summaries that may use different wording but convey the same meaning.
+Measures the similarity between two pieces of text based on approximate matching rather than exact matching, useful for evaluating summaries that may use different wording but convey the same meaning.
 
 **Required Parameters**
 - `context`: The original text or document to be summarized.
@@ -678,11 +634,10 @@ The Fuzzy Score measures the similarity between two pieces of text—the origina
 
 **Interpretation**
 
-- "Well-Aligned Summarization": Indicates that the generated summary is well-aligned with the original text, even if it uses different words or phrases.
-- "Misaligned Summarization": Suggests that the summary is misaligned with the original text, possibly missing key information or introducing inaccuracies.
+- "Well-Aligned Summarization": The summary aligns well with the original text, even with different wording.
+- "Misaligned Summarization": The summary diverges significantly from the original text.
 
 **Usage**
-
 ```python
 metrics_list = ["FUZZY_SCORE"]
 
@@ -698,26 +653,20 @@ input_data = [{
 }]
 ```
 </details>
+
 <details>
-<summary>METEOR_SCORE</summary></br>
+<summary>METEOR_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-The METEOR score (Metric for Evaluation of Translation with Explicit ORdering) is a metric used to evaluate the quality of generated summaries by comparing them to reference summaries. Originally designed for machine translation, METEOR has been adapted for summarization tasks as well. It considers matches between the generated summary and the reference summary at the level of unigrams (individual words), accounting for synonyms and stemming, and incorporates penalties for word order differences. This makes METEOR effective in capturing both exact matches and variations in wording.
+The METEOR score evaluates the quality of generated summaries by comparing them to reference summaries, accounting for synonyms and stemming, and incorporating penalties for word order differences.
 
 **Required Parameters**
-
 - `context`: The original text or document to be summarized.
 - `response`: The generated summary to be evaluated.
 - `reference_summary`: The reference summary to compare against.
 
-**Interpretation**
-
-- "Semantically Accurate": Indicates that the generated summary closely aligns with the reference summary in terms of content and meaning, including synonym matches and appropriate word order.
-- "Semantically Drifting": Suggests that the generated summary diverges from the reference summary, potentially missing key information or containing inaccuracies.
-
 **Usage**
-
 ```python
 metrics_list = ["METEOR_SCORE"]
 
@@ -732,7 +681,6 @@ input_data = [{
         "A new AI algorithm predicts volcanic eruptions weeks ahead by analyzing seismic patterns, "
         "allowing for timely evacuations and disaster planning."
     ),
-    # Reference summary for METEOR score calculation
     "reference_summary": (
         "Researchers created an AI model capable of forecasting volcanic eruptions weeks before they occur "
         "by studying seismic activity, potentially improving evacuation strategies."
@@ -742,25 +690,18 @@ input_data = [{
 </details>
 
 <details>
-
-<summary>ROUGE_SCORE</summary>
+<summary>ROUGE_SCORE (Context Length: Length Agnostic)</summary>
 
 **Objective**
 
-The ROUGE score (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics used to evaluate the quality of generated summaries by comparing them to one or more reference summaries. ROUGE focuses primarily on the overlap of content between the generated and reference summaries. ROUGE-L, specifically, measures the longest common subsequence (LCS) between the generated summary and the reference summary, capturing sentence-level structure similarity and allowing for in-sequence matches that are not necessarily contiguous.
+The ROUGE score measures the quality of generated summaries by comparing them to reference summaries, focusing on the overlap of content between them.
 
 **Required Parameters**
 - `context`: The original text or document to be summarized.
 - `response`: The generated summary to be evaluated.
 - `reference_summary`: The reference summary to compare against.
 
-**Interpretation**
-
-- "High Overlap": Indicates a high overlap between the generated summary and the reference summary in terms of shared sequences of words, suggesting that the generated summary captures the important content of the reference summary.
-- "Low Overlap": Suggests a low overlap, meaning the generated summary may have missed key information or is significantly different from the reference summary.
-
 **Usage**
-
 ```python
 metrics_list = ["ROUGE_SCORE"]
 
@@ -773,138 +714,9 @@ input_data = [{
     "response": (
         "The WHO reports a surge in antibiotic-resistant bacteria due to overuse in medicine and farming, urging global efforts for responsible antibiotic use and new treatments."
     ),
-    # Reference summary for ROUGE-L score calculation
     "reference_summary": (
         "A WHO report warns of increasing antibiotic-resistant bacteria caused by overuse and misuse in healthcare and agriculture, advocating for responsible antibiotic practices and investment in new antimicrobial research."
     )
 }]
 ```
 </details>
-</br>
-
-# Metric Definitions and Usage
-
-### General Usage Pattern
-
-For all metrics, use the following pattern:
-
-
-```python
-from inspeq.client import InspeqEval
-
-# Initialize the client
-INSPEQ_API_KEY = "your_inspeq_sdk_key"
-INSPEQ_PROJECT_ID = "your_project_id"
-INSPEQ_API_URL = "your_inspeq_backend_url"  # Required only for on-prem customers
-
-inspeq_eval = InspeqEval(inspeq_api_key=INSPEQ_API_KEY, inspeq_project_id=INSPEQ_PROJECT_ID)
-
-# Prepare input data
-input_data = [{
-    "prompt": "Your prompt here",
-    "response": "Your response here",
-    "context": "Your context here (if applicable)"
-}]
-
-# Define the metric to evaluate
-metrics_list = ["METRIC_NAME"]
-
-try:
-    results = inspeq_eval.evaluate_llm_task(
-        metrics_list=metrics_list,
-        input_data=input_data,
-        task_name="your_task_name"
-    )
-    print(results)
-except Exception as e:
-    print(f"An error occurred: {str(e)}")
-
-```
-<!-- 
-__DATA_LEAKAGE__
-
-Detects whether the model response contains any personal information such as credit card numbers, phone numbers, emails, URLs, etc.
-
-Usage
-
-```python
-metrics_list = ["DATA_LEAKAGE"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-``` -->
-
-<!-- __DO_NOT_USE_KEYWORDS__
-
-Identifies and evaluate the use of specific keywords or phrases.
-
-Usage
-
-```python
-metrics_list = ["DO_NOT_USE_KEYWORDS"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-
-``` -->
-
-<!-- __MODEL_REFUSAL__
-
-Identifies rejections in the model responses.
-
-Usage
-
-```python
-metrics_list = ["MODEL_REFUSAL"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}] -->
-<!-- ``` -->
-
-
-<!-- __WORD_COUNT_LIMIT__
-
-Checks if the generated text adheres to specified word limits.
-
-Usage
-
-```python
-metrics_list = ["WORD_COUNT_LIMIT"]
-
-input_data = [{
-    "prompt": "What is the capital of France?",
-    "response": "Paris is the capital of France."
-}]
-``` -->
-
-<!-- __INSECURE_OUTPUT__
-
- Detects any potentially harmful responses that could lead to system vulnerabilities. Eg. detects any  mallicious code, Javascript or Markdown generated by the model that could result in XSS.
-
-Usage
-```python
-metrics_list = ["INSECURE_OUTPUT"]
-
-input_data = [{
-    "response": "import os\nprint(os.getcwd())"
-}]
-```  -->
-
-
-<!-- __ANSWER_FLUENCY__
-
-Assesses the smoothness and coherence with which the model generates language that is easily understandable and grammatically correct.
-
-Usage
-
-```python
-metrics_list = ["ANSWER_FLUENCY"]
-
-input_data = [{
-    "response": "Paris is the capital of France."
-}]
-``` -->
-

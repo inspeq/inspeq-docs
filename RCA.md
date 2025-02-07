@@ -19,6 +19,13 @@ You can find the RCA feature in our **dashboard**, where it is presented as foll
 | READABILITY               |       ✅        |
 | INSECURE_OUTPUT           |       ✅        |
 | INVISIBLE_TEXT            |       ✅        |
+| BIAS                      |       ✅        |
+| COHERENCE                 |       ✅        |
+| DIVERSITY                 |       ✅        |
+| CREATIVITY                |       ✅        |
+| GRAMMATICAL CORRECTNESS   |       ✅        |
+| CLARITY                   |       ✅        |
+| NARRATIVE CONTINUITY      |       ✅        |
 | TOXICITY                  |       ✅        |
 | BLEU_SCORE                |       ✅        |
 | COSINE_SIMILARITY_SCORE   |       ✅        |
