@@ -36,12 +36,12 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         <tr>
             <td>2</td>
             <td>Factual Consistency w.r.t Context</td>
-            <td>0.79</td>
+            <td>0.95</td>
         </tr>
         <tr>
             <td>3</td>
             <td>Conceptual Similarity</td>
-            <td>0.71</td>
+            <td>0.97</td>
         </tr>
         <tr>
             <td>4</td>
@@ -50,61 +50,56 @@ While accuracy is a valuable metric, it is essential to interpret it within the 
         </tr>
         <tr>
             <td>5</td>
-            <td>Bias detection</td>
-            <td>0.82</td>
-        </tr>
-        <tr>
-            <td>6</td>
             <td>Toxicity Detection</td>
             <td>0.83</td>
         </tr>
         <tr>
-            <td>7</td>
+            <td>6</td>
             <td>Banned Topics*</td>
             <td>0.94</td>
         </tr>
         <tr>
-            <td>8</td>
+            <td>7</td>
             <td>Invisible Text</td>
             <td>1</td>
         </tr>
         <tr>
-            <td>9</td>
+            <td>8</td>
             <td>Code Detection*</td>
             <td>0.90</td>
         </tr>
         <tr>
-            <td>10</td>
+            <td>9</td>
             <td>Data Leakage (PII)</td>
             <td>0.92</td>
         </tr>
         <tr>
-            <td>11</td>
+            <td>10</td>
             <td>Insecure Output</td>
             <td>0.92</td>
         </tr>
         <tr>
-            <td>12</td>
+            <td>11</td>
             <td>Prompt Injection Detection</td>
             <td>0.93</td>
         </tr>
         <tr>
-            <td>13</td>
+            <td>12</td>
             <td>NSFW detection*</td>
             <td>0.95</td>
         </tr>
         <tr>
-            <td>14</td>
+            <td>13</td>
             <td>Sensitive data leakage detection (beyond PII)*</td>
             <td>0.70</td>
         </tr>
         <tr>
-            <td>15</td>
+            <td>14</td>
             <td>Coherence</td>
             <td>0.87</td>
         </tr>
         <tr>
-            <td>16</td>
+            <td>15</td>
             <td>Bias</td>
             <td>0.86</td>
         </tr>
