@@ -59,6 +59,7 @@ Inspeq AI's SDK includes these powerful metrics to evaluate and monitor various 
 * Fuzzy Score
 * Meteor Score
 * Rouge Score
+* Bias
 <!-- * Data Leakage -->
 <!-- * Do Not Use Keywords -->
 <!-- * Model Refusal -->
